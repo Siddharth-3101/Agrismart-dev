@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+/* import React, { useEffect } from 'react';
 import { 
   Routes, 
   Route, 
@@ -233,9 +233,10 @@ export default function App() {
               {getTitle()}
             </h2>
           </div>
+*/
 
-          {/* Sync Pill */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px', borderRadius: '9999px', background: demoMode ? '#fef3c7' : '#dcfce7', border: `1px solid ${demoMode ? 'var(--warning)' : 'var(--primary)'}` }}>
+          /*{/* Sync Pill */
+ /*         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px', borderRadius: '9999px', background: demoMode ? '#fef3c7' : '#dcfce7', border: `1px solid ${demoMode ? 'var(--warning)' : 'var(--primary)'}` }}>
             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: demoMode ? 'var(--warning)' : 'var(--primary)' }}></div>
             <span style={{ fontSize: '12px', fontWeight: '700', color: demoMode ? 'var(--warning)' : 'var(--primary)' }}>
               {demoMode ? 'Local Offline Mode' : 'Connected to Cloud'}
@@ -253,10 +254,56 @@ export default function App() {
           <Route path="/chatbot" element={<ProtectedRoute><Chatbot /></ProtectedRoute>} />
           <Route path="/officer-portal" element={<ProtectedRoute><OfficerPortal /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-          {/* Catch all */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* Catch all */
+/*          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
     </div>
   );
 }
+ */
+
+import {Routes, Route } from "react-router-dom";
+import "./App.css";
+
+import Home from "./pages/Home";
+
+function Dashboard() {
+  return <h1>Dashboard Page</h1>;
+}
+
+function CropRecords() {
+  return <h1>Crop Records Page</h1>;
+}
+
+function Schemes() {
+  return <h1>Schemes Page</h1>;
+}
+
+function Weather() {
+  return <h1>Weather Page</h1>;
+}
+
+function Profile() {
+  return <h1>Profile Page</h1>;
+}
+
+function Login() {
+  return <h1>Login Page</h1>;
+}
+
+function App() {
+  return (
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/crop-records" element={<CropRecords />} />
+        <Route path="/schemes" element={<Schemes />} />
+        <Route path="/weather" element={<Weather />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+  );
+}
+
+export default App;
