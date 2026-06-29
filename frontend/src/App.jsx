@@ -7,18 +7,22 @@ import {
   useNavigate, 
   useLocation 
 } from 'react-router-dom';
+import {
+    Sprout,
+    MapPin,
+    AlertTriangle,
+    CloudRain,
+    Plus,
+    Layers,
+    Award,
+    MessageSquare,
+    LayoutDashboard,
+    CloudSun,
+    User,
+    LogOut
+} from "lucide-react";
 import { useSelector, useDispatch } from 'react-redux';
-import { 
-  Sprout, 
-  LayoutDashboard, 
-  CloudSun, 
-  MessageSquare, 
-  User, 
-  LogOut, 
-  Layers, 
-  Users, 
-  Award
-} from 'lucide-react';
+
 
 // Import action creators and store from main.jsx
 import { 
