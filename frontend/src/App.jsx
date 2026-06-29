@@ -23,6 +23,11 @@ import {
 } from "lucide-react";
 import { useSelector, useDispatch } from 'react-redux';
 
+// Import CSS stylesheets for each teammate to avoid merge conflicts
+import './sid.css';
+import './sanjay.css';
+import './sakari.css';
+
 
 // Import action creators and store from main.jsx
 import { 
