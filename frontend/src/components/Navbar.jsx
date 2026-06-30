@@ -15,33 +15,40 @@ import {
 
 import { GiPlantRoots } from "react-icons/gi";
 
-const Navbar = () => {
+const Navbar = ({ transparent = false }) => {
+
     const [scroll, setScroll] = useState(false);
 
     useEffect(() => {
+
+        if (!transparent) return;
+
         const handleScroll = () => {
             const heroHeight = window.innerHeight - 80;
-
-            if (window.scrollY >= heroHeight) {
-                setScroll(true);
-            } else {
-                setScroll(false);
-            }
+            setScroll(window.scrollY >= heroHeight);
         };
 
         window.addEventListener("scroll", handleScroll);
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+
+    }, [transparent]);
+
+    const navbarClass = transparent
+        ? (scroll ? "homeNavbar scrolled" : "homeNavbar")
+        : "homeNavbar scrolled";
 
     return (
-        <nav className={scroll ? "homeNavbar scrolled" : "homeNavbar"}>
+
+        <nav className={navbarClass}>
+
             <div className="logo">
                 <FaLeaf className="logoIcon" />
                 <span>AgriSmart</span>
             </div>
 
             <ul className="navLinks">
+
                 <li>
                     <Link to="/">
                         <FaHome />
@@ -97,8 +104,11 @@ const Navbar = () => {
                         Login
                     </Link>
                 </li>
+
             </ul>
+
         </nav>
+
     );
 };
 

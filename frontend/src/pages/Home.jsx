@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar transparent />
 
       {/* ================= HERO ================= */}
 
