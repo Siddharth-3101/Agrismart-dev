@@ -1,49 +1,66 @@
-import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 
-// Existing Pages
+// Farmer Pages
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Crops from "./pages/Crops";
-import Schemes from "./pages/Schemes";
-import Weather from "./pages/Weather";
-import Chatbot from "./pages/Chatbot";
-import OfficerPortal from "./pages/OfficerPortal";
+import AddCrop from "./pages/AddCrop";
+import CropDetails from "./pages/CropDetails";
 import Profile from "./pages/Profile";
+import Chatbot from "./pages/Chatbot";
+import Weather from "./pages/Weather";
+import Schemes from "./pages/Schemes";
 
 // Authentication Pages
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
-
-/* // Role-Based Dashboards
-import FarmerDashboard from "./pages/FarmerDashboard";
+// Officer Pages
+import OfficerPortal from "./pages/OfficerPortal";
 import OfficerDashboard from "./pages/OfficerDashboard";
-import AdminDashboard from "./pages/AdminDashboard"; */
 
 function App() {
   return (
     <Routes>
-      {/* Home */}
+
+      {/* ================= HOME ================= */}
+
       <Route path="/" element={<Home />} />
 
-      {/* Authentication */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      {/* ================= FARMER ================= */}
 
-      {/* Existing Pages */}
       <Route path="/dashboard" element={<Dashboard />} />
+
       <Route path="/crops" element={<Crops />} />
-      <Route path="/schemes" element={<Schemes />} />
-      <Route path="/weather" element={<Weather />} />
-      <Route path="/chatbot" element={<Chatbot />} />
-      <Route path="/officer-portal" element={<OfficerPortal />} />
+
+      <Route path="/crops/add" element={<AddCrop />} />
+
+      <Route path="/crops/:id" element={<CropDetails />} />
+
       <Route path="/profile" element={<Profile />} />
 
-      {/* Role-Based Dashboards */}
-     {/*  <Route path="/farmer-dashboard" element={<FarmerDashboard />} />
-      <Route path="/officer-dashboard" element={<OfficerDashboard />} />
-      <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
+      <Route path="/chatbot" element={<Chatbot />} />
+
+      <Route path="/weather" element={<Weather />} />
+
+      <Route path="/schemes" element={<Schemes />} />
+
+      {/* ================= OFFICER ================= */}
+
+      <Route path="/officer" element={<OfficerPortal />} />
+
+      <Route
+        path="/officer/dashboard"
+        element={<OfficerDashboard />}
+      />
+
+      {/* ================= AUTHENTICATION ================= */}
+
+      <Route path="/login" element={<Login />} />
+
+      <Route path="/register" element={<Register />} />
+
     </Routes>
   );
 }

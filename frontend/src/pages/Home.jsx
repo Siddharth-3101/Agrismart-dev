@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../sankari.css";
+import "../styles/sankari.css";
 import heroImage from "../assets/hero.png";
 import farmBg from "../assets/farmbg.png";
 import { FaLeaf, FaHome, FaTachometerAlt, FaSeedling, FaCloudSun, FaUserCircle, FaSignInAlt, FaRobot, FaBullhorn } from "react-icons/fa";

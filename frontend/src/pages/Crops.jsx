@@ -1,152 +1,315 @@
 import React, { useState } from "react";
-import "../sid.css";
+import { useNavigate } from "react-router-dom";
+import "../styles/sid.css";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import {
-  Search,
-  Plus,
-  Droplets,
-  Calendar,
-  Sprout,
-  Leaf,
+    Search,
+    Plus,
+    Leaf,
+    Sprout,
+    Calendar,
+    TrendingUp,
+    MapPinned,
+    ArrowRight,
+    Brain,
+    CircleCheck,
 } from "lucide-react";
 
 function Crops() {
-  const [search, setSearch] = useState("");
+    const navigate = useNavigate();
 
-  const crops = [
-    {
-      id: 1,
-      name: "Rice",
-      soil: "Alluvial",
-      water: "Moderate",
-      harvest: "18 Sept",
-      status: "Healthy",
-    },
-    {
-      id: 2,
-      name: "Maize",
-      soil: "Black Soil",
-      water: "High",
-      harvest: "30 Sept",
-      status: "Growing",
-    },
-    {
-      id: 3,
-      name: "Cotton",
-      soil: "Black Soil",
-      water: "Low",
-      harvest: "12 Oct",
-      status: "Attention",
-    },
-    {
-      id: 4,
-      name: "Wheat",
-      soil: "Loamy",
-      water: "Moderate",
-      harvest: "28 Oct",
-      status: "Healthy",
-    },
-  ];
+    const [search, setSearch] = useState("");
 
-  const filteredCrops = crops.filter((crop) =>
-    crop.name.toLowerCase().includes(search.toLowerCase())
-  );
+    const cropData = [
+        {
+            id: 1,
+            name: "Rice",
+            image: "https://images.pexels.com/photos/236474/pexels-photo-236474.jpeg",
+            farm: "Green Valley Farm",
+            health: "Healthy",
+            progress: 78,
+            stage: "Flowering",
+            area: "3 Acres",
+            harvest: "18 Days",
+            yield: "3.4 Tons",
+            recommendation: "Continue irrigation tomorrow morning.",
+        },
+        {
+            id: 2,
+            name: "Cotton",
+            image: "https://images.pexels.com/photos/13924871/pexels-photo-13924871.jpeg",
+            farm: "South Farm",
+            health: "Growing",
+            progress: 55,
+            stage: "Vegetative",
+            area: "2 Acres",
+            harvest: "42 Days",
+            yield: "2.2 Tons",
+            recommendation: "Apply nitrogen fertilizer next week.",
+        },
+        {
+            id: 3,
+            name: "Groundnut",
+            image: "https://images.pexels.com/photos/9799037/pexels-photo-9799037.jpeg",
+            farm: "West Farm",
+            health: "Healthy",
+            progress: 91,
+            stage: "Pod Formation",
+            area: "1.5 Acres",
+            harvest: "8 Days",
+            yield: "1.8 Tons",
+            recommendation: "Harvest preparation can begin soon.",
+        },
+        {
+            id: 4,
+            name: "Maize",
+            image: "https://images.pexels.com/photos/7878030/pexels-photo-7878030.jpeg",
+            farm: "East Farm",
+            health: "Attention",
+            progress: 34,
+            stage: "Early Growth",
+            area: "4 Acres",
+            harvest: "67 Days",
+            yield: "4.5 Tons",
+            recommendation: "Water stress detected. Irrigate immediately.",
+        },
+    ];
 
-  return (
-    <>
-      <Navbar />
+    const filteredCrops = cropData.filter((crop) =>
+        crop.name.toLowerCase().includes(search.toLowerCase())
+    );
 
-      <section className="cropPage">
-        <div className="cropHeader">
-          <div>
-            <h1>Crop Management</h1>
-            <p>
-              Monitor crop health, harvest schedules, and farming activities.
-            </p>
-          </div>
+    return (
+        <>
+            <Navbar />
 
-          <button className="addCropBtn">
-            <Plus size={18} />
-            Add Crop
-          </button>
-        </div>
+            <div className="cropPage">
 
-        <div className="searchContainer">
-          <Search size={18} />
+                {/* Header */}
 
-          <input
-            type="text"
-            placeholder="Search crop..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
+                <div className="cropHeader">
 
-        <div className="summaryCards">
-          <div className="summaryCard">
-            <h2>2</h2>
-            <p>Healthy</p>
-          </div>
+                    <div className="cropHeaderLeft">
 
-          <div className="summaryCard">
-            <h2>1</h2>
-            <p>Growing</p>
-          </div>
+                        <h1>Crop Management</h1>
 
-          <div className="summaryCard">
-            <h2>1</h2>
-            <p>Attention</p>
-          </div>
-        </div>
+                        <p>
+                            Monitor all your active crops with AI-powered insights and live tracking.
+                        </p>
 
-        <div className="cropGrid">
-          {filteredCrops.map((crop) => (
-            <div className="cropCard" key={crop.id}>
-              <div className="cropTop">
-                <Leaf size={42} />
+                    </div>
 
-                <div>
-                  <h2>{crop.name}</h2>
-
-                  <span className={`status ${crop.status.toLowerCase()}`}>
-                    {crop.status}
-                  </span>
                 </div>
-              </div>
 
-              <div className="cropInfo">
-                <p>
-                  <Sprout size={18} />
-                  Soil : {crop.soil}
-                </p>
+                {/* Search + Button */}
 
-                <p>
-                  <Droplets size={18} />
-                  Water : {crop.water}
-                </p>
+                <div className="cropActions">
 
-                <p>
-                  <Calendar size={18} />
-                  Harvest : {crop.harvest}
-                </p>
-              </div>
+                    <div className="searchBar">
 
-              <div className="cropButtons">
-                <button>View Details</button>
+                        <Search size={20} />
 
-                <button>Update</button>
-              </div>
+                        <input
+                            type="text"
+                            placeholder="Search crops..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+
+                    </div>
+
+                    <button
+                        className="addCropBtn"
+                        onClick={() => navigate("/crops/add")}
+                    >
+                        <Plus size={18} />
+                        Add Crop
+                    </button>
+
+                </div>
+                {/* Overview */}
+
+                <div className="overviewGrid">
+
+                    <div className="overviewCard">
+                        <Leaf size={36} />
+                        <h2>{cropData.length}</h2>
+                        <p>Active Crops</p>
+                    </div>
+
+                    <div className="overviewCard">
+                        <CircleCheck size={36} />
+                        <h2>
+                            {
+                                cropData.filter(
+                                    (crop) => crop.health === "Healthy"
+                                ).length
+                            }
+                        </h2>
+                        <p>Healthy Crops</p>
+                    </div>
+
+                    <div className="overviewCard">
+                        <Calendar size={36} />
+                        <h2>18 Days</h2>
+                        <p>Nearest Harvest</p>
+                    </div>
+
+                    <div className="overviewCard">
+                        <TrendingUp size={36} />
+                        <h2>3.4 Tons</h2>
+                        <p>Average Yield</p>
+                    </div>
+
+                </div>
+
+                {/* Current Crops */}
+
+                <div className="sectionTitle">
+                    <h2>Current Crops</h2>
+                </div>
+
+                <div className="cropGrid">
+
+                    {filteredCrops.length > 0 ? (
+
+                        filteredCrops.map((crop) => (
+
+                            <div className="cropCard" key={crop.id}>
+
+                                <img
+                                    src={crop.image}
+                                    alt={crop.name}
+                                    className="cropImage"
+                                />
+
+                                <div className="cropBody">
+
+                                    <div className="cropTop">
+
+                                        <div>
+                                            <h2>{crop.name}</h2>
+                                            <p>{crop.stage}</p>
+                                        </div>
+
+                                        <span
+                                            className={`status ${crop.health.toLowerCase()}`}
+                                        >
+                                            {crop.health}
+                                        </span>
+
+                                    </div>
+
+                                    <div className="progressSection">
+
+                                        <div className="progressHeader">
+                                            <span>Growth Progress</span>
+                                            <span>{crop.progress}%</span>
+                                        </div>
+
+                                        <div className="progressBar">
+
+                                            <div
+                                                className="progressFill"
+                                                style={{
+                                                    width: `${crop.progress}%`,
+                                                }}
+                                            ></div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div className="cropInfo">
+
+                                        <div>
+                                            <MapPinned size={18} />
+                                            <span>{crop.farm}</span>
+                                        </div>
+
+                                        <div>
+                                            <Sprout size={18} />
+                                            <span>{crop.area}</span>
+                                        </div>
+
+                                        <div>
+                                            <Calendar size={18} />
+                                            <span>{crop.harvest}</span>
+                                        </div>
+
+                                        <div>
+                                            <TrendingUp size={18} />
+                                            <span>{crop.yield}</span>
+                                        </div>
+
+                                    </div>
+
+                                    <div className="recommendation">
+
+                                        <Brain size={18} />
+
+                                        <div>
+
+                                            <h4>Today's Recommendation</h4>
+
+                                            <p>{crop.recommendation}</p>
+
+                                        </div>
+
+                                    </div>
+
+                                    <button
+                                        className="detailsBtn"
+                                        onClick={() =>
+                                            navigate(`/crops/${crop.id}`)
+                                        }
+                                    >
+                                        View Details
+                                        <ArrowRight size={18} />
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        ))
+
+                    ) : (
+
+                        <div className="emptyCrop">
+
+                            <Leaf size={70} />
+
+                            <h2>No Crops Registered</h2>
+
+                            <p>
+                                You haven't added any crops yet.
+                                Start by registering your first crop.
+                            </p>
+
+                            <button
+                                className="addCropBtn"
+                                onClick={() => navigate("/crops/add")}
+                            >
+                                <Plus size={18} />
+                                Add Crop
+                            </button>
+
+                        </div>
+
+                    )}
+
+                </div>
+
             </div>
-          ))}
-        </div>
-      </section>
 
-      <Footer />
-    </>
-  );
+            <Footer />
+
+        </>
+    );
 }
 
 export default Crops;
