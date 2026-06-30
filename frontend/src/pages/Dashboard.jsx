@@ -121,7 +121,7 @@ function Dashboard() {
         </div>
 
       </div>
-
+      <FloatingAI/>
       <Footer />
     </>
   );
