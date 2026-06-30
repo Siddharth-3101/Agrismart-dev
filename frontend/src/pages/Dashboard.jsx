@@ -12,7 +12,7 @@ import {
   Award,
   MessageSquare
 } from 'lucide-react';
-
+import FloatingAI from "../components/FloatingAI";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 

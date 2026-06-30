@@ -133,3 +133,93 @@
     width:60%;
     border:1px solid rgba(255,255,255,.25);
 }
+
+/* ==========================================
+   FLOATING AI BUTTON
+========================================== */
+
+.floatingAI{
+
+    position:fixed;
+
+    right:35px;
+
+    bottom:35px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px 24px;
+
+    border:none;
+
+    border-radius:60px;
+
+    cursor:pointer;
+
+    z-index:1000;
+
+    background:linear-gradient(
+        135deg,
+        #43A047,
+        #1B5E20
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.18);
+
+    transition:all .35s ease;
+
+}
+
+.floatingAI:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.22);
+
+}
+
+.floatingAI svg{
+
+    flex-shrink:0;
+
+}
+
+.floatingAI span{
+
+    white-space:nowrap;
+
+}
+
+/* Mobile (future proof) */
+
+@media(max-width:768px){
+
+.floatingAI{
+
+    right:20px;
+
+    bottom:20px;
+
+    padding:16px;
+
+}
+
+.floatingAI span{
+
+    display:none;
+
+}
+
+}

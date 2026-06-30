@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/sid.css";
-
+import FloatingAI from "../components/FloatingAI";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -305,6 +305,7 @@ function Crops() {
                 </div>
 
             </div>
+            <FloatingAI />
 
             <Footer />
 

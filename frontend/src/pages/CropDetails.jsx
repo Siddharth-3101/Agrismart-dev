@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import FloatingAI from "../components/FloatingAI";
 import {
   ArrowLeft,
   Leaf,
@@ -45,7 +45,7 @@ function CropDetails() {
           <div className="cropHero">
 
             <img
-              src="/images/rice.jpg"
+              src="https://images.pexels.com/photos/236474/pexels-photo-236474.jpeg"
               alt="Rice"
               className="heroImage"
             />
@@ -304,7 +304,7 @@ function CropDetails() {
         </div>
 
       </div>
-
+      <FloatingAI />
       <Footer />
 
     </>

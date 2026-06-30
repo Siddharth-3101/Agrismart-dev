@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import FloatingAI from "../components/FloatingAI";
 import {
     ArrowLeft,
     Tractor,
@@ -271,7 +271,7 @@ function AddCrop() {
                 </div>
 
             </div>
-
+            <FloatingAI />
             <Footer />
         </>
     );
