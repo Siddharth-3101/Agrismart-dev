@@ -42,7 +42,7 @@ function CropDetails() {
             Back
           </button>
 
-          <div className="cropHero">
+          <div className="cropDetailsHero">
 
             <img
               src="https://images.pexels.com/photos/236474/pexels-photo-236474.jpeg"

@@ -4,13 +4,61 @@
 
 .cropPage {
     min-height: 100vh;
-    padding: 120px 7% 70px;
+    background: #ffffff;
+}
+
+.cropHero{
+
     background:
-        linear-gradient(rgba(255, 255, 255, .75), rgba(255, 255, 255, .75)),
-        url("https://images.pexels.com/photos/8289991/pexels-photo-8289991.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+        linear-gradient(to bottom,
+            rgba(255,255,255,.45) 10%,
+            rgba(255,255,255,.55) 80%,
+            rgba(247,250,247,.90) 100%
+        ),
+        url("C:\Users\siddh\Music\AgriSmart-dev\frontend\src\assets\crophero.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    padding:140px 7% 70px;
+    position:relative;
+
+    overflow:hidden;
+
+}
+.cropHero::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:40px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(247,250,247,0),
+        rgba(247,250,247,1)
+    );
+
+}
+
+.cropContent{
+
+    position:relative;
+
+    padding:60px 7% 80px;
+
+    background:#ffffffdb;
+
+    border-radius:35px 35px 0 0;
+
+    z-index:2;
+
 }
 
 /* ===================================================
@@ -21,13 +69,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 .cropHeader h1 {
     font-size: 48px;
     color: #1b5e20;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-weight: 700;
 }
 
@@ -36,6 +84,83 @@
     color: #555;
     max-width: 700px;
     line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* ==========================================
+   SUMMARY STRIP
+========================================== */
+
+.summaryCard {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 28px 40px;
+
+    margin-top: -55px;
+
+    margin-bottom: 30px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+}
+
+.summaryItem {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex: 1;
+
+}
+
+.summaryItem svg {
+
+    color: #2E7D32;
+
+}
+
+.summaryItem span {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+.summaryItem h3 {
+
+    margin-top: 4px;
+
+    color: #114b1d;
+
+    font-size: 30px;
+
+}
+
+.summaryDivider {
+
+    width: 1px;
+
+    height: 65px;
+
+    background: #ececec;
+
 }
 
 /* ===================================================
@@ -86,13 +211,12 @@
 
     display: flex;
     align-items: center;
-    width: 80%;
-    max-width: 950px;
-    gap: 15px;
+    width: 100%;
+    gap: 25px;
     height: 65px;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
 
-    background: rgba(255, 255, 255, .22);
+    background: white;
 
     backdrop-filter: blur(18px);
 
@@ -104,7 +228,7 @@
 
     padding: 18px 25px;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
 
 }
 
@@ -136,103 +260,14 @@
 
 }
 
-/* ===================================================
-   OVERVIEW GRID
-=================================================== */
-
-.overviewGrid {
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 25px;
-
-    margin-bottom: 60px;
-
-}
-
-/* ===================================================
-   OVERVIEW CARD
-=================================================== */
-
-.overviewCard {
-
-    background: rgba(255, 255, 255, .18);
-
-    backdrop-filter: blur(20px);
-
-    -webkit-backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255, 255, 255, .35);
-
-    border-radius: 28px;
-
-    padding: 28px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    transition: .35s;
-
-    box-shadow: 0 12px 35px rgba(0, 0, 0, .08);
-
-}
-
-.overviewCard:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow: 0 20px 45px rgba(0, 0, 0, .15);
-
-}
-
-.overviewCard svg {
-
-    width: 32px;
-
-    height: 32px;
-
-    color: #2E7D32;
-
-    margin-bottom: 14px;
-
-}
-
-.overviewCard h2 {
-
-    font-size: 28px;
-
-    color: #114b1d;
-
-    margin-bottom: 8px;
-
-}
-
-.overviewCard p {
-
-    font-size: 16px;
-
-    color: #666;
-
-    font-weight: 500;
-
-}
 
 /* ===================================================
    SECTION TITLES
 =================================================== */
 
 .sectionTitle {
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 
 }
 
@@ -627,176 +662,6 @@
 
 }
 
-/* ===================================================
-   AI RECOMMENDATIONS
-=================================================== */
-
-.aiSection {
-    margin-bottom: 70px;
-}
-
-.aiCard {
-    background: rgba(255, 255, 255, .18);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255, 255, 255, .35);
-    border-radius: 30px;
-
-    padding: 35px;
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
-}
-
-.aiCard ul {
-    list-style: none;
-}
-
-.aiCard li {
-
-    position: relative;
-
-    padding: 18px 18px 18px 55px;
-
-    margin-bottom: 18px;
-
-    border-radius: 18px;
-
-    background: rgba(76, 175, 80, .08);
-
-    transition: .3s;
-
-    color: #444;
-
-    line-height: 1.7;
-
-    font-size: 16px;
-
-}
-
-.aiCard li:last-child {
-    margin-bottom: 0;
-}
-
-.aiCard li::before {
-
-    content: "✓";
-
-    position: absolute;
-
-    left: 20px;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 24px;
-
-    height: 24px;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background: #4CAF50;
-
-    color: white;
-
-    font-weight: bold;
-
-    font-size: 14px;
-
-}
-
-.aiCard li:hover {
-
-    transform: translateX(8px);
-
-    background: rgba(76, 175, 80, .15);
-
-}
-
-/* ===================================================
-   ACTIVITY
-=================================================== */
-
-.activitySection {
-
-    margin-bottom: 80px;
-
-}
-
-.activityCard {
-
-    background: rgba(255, 255, 255, .18);
-
-    backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255, 255, 255, .35);
-
-    border-radius: 30px;
-
-    padding: 35px;
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
-
-}
-
-.activityItem {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    padding: 20px;
-
-    border-radius: 18px;
-
-    margin-bottom: 18px;
-
-    transition: .3s;
-
-    background: rgba(255, 255, 255, .18);
-
-}
-
-.activityItem:last-child {
-
-    margin-bottom: 0;
-
-}
-
-.activityItem:hover {
-
-    transform: translateX(10px);
-
-    background: rgba(76, 175, 80, .10);
-
-}
-
-.activityItem svg {
-
-    color: #2E7D32;
-
-    min-width: 24px;
-
-}
-
-.activityItem span {
-
-    color: #444;
-
-    font-size: 16px;
-
-    font-weight: 500;
-
-}
 
 /* ===================================================
    SCROLLBAR
@@ -1499,7 +1364,7 @@
     margin-bottom: 40px;
 }
 
-.cropHero {
+.cropDetailsHero {
     display: flex;
     align-items: center;
     gap: 35px;
@@ -2167,25 +2032,25 @@
    CHAT CONTAINER
 =================================================== */
 
-.chatContainer{
+.chatContainer {
 
-    display:flex;
+    display: flex;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    height:650px;
+    height: 650px;
 
-    background:rgba(255,255,255,.45);
+    background: rgba(255, 255, 255, .45);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter: blur(18px);
 
-    border:1px solid rgba(255,255,255,.35);
+    border: 1px solid rgba(255, 255, 255, .35);
 
-    border-radius:30px;
+    border-radius: 30px;
 
-    overflow:hidden;
+    overflow: hidden;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
 
 }
 
@@ -2202,60 +2067,63 @@
     align-items: flex-start;
 
 }
+
 /* ===========================
    MESSAGE BUBBLE
 =========================== */
 
-.messageBubble{
+.messageBubble {
 
-    padding:16px 22px;
+    padding: 16px 22px;
 
-    border-radius:18px;
+    border-radius: 18px;
 
-    line-height:1.7;
+    line-height: 1.7;
 
-    font-size:15px;
+    font-size: 15px;
 
-    max-width:70%;
+    max-width: 70%;
 
-    word-wrap:break-word;
+    word-wrap: break-word;
 
 }
+
 /* ===========================
    BOT MESSAGE
 =========================== */
-.botMessage{
+.botMessage {
 
-    display:flex;
+    display: flex;
 
-    justify-content:flex-start;
+    justify-content: flex-start;
 
-    align-items:center;
+    align-items: center;
 
-    gap:14px;
-
-}
-.botMessage .messageBubble{
-
-    background:white;
-
-    color:#333;
-
-    border-top-left-radius:6px;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    gap: 14px;
 
 }
 
-.botMessage .messageBubble{
+.botMessage .messageBubble {
 
-    background:white;
+    background: white;
 
-    color:#333;
+    color: #333;
 
-    border-top-left-radius:6px;
+    border-top-left-radius: 6px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+
+}
+
+.botMessage .messageBubble {
+
+    background: white;
+
+    color: #333;
+
+    border-top-left-radius: 6px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .05);
 
 }
 
@@ -2263,15 +2131,15 @@
    USER MESSAGE
 =========================== */
 
-.userMessage{
+.userMessage {
 
-    display:flex;
+    display: flex;
 
-    justify-content:flex-end;
+    justify-content: flex-end;
 
-    align-items:center;
+    align-items: center;
 
-    gap:14px;
+    gap: 14px;
 
 }
 
@@ -2297,15 +2165,15 @@
 
 }
 
-.userMessage .messageBubble{
+.userMessage .messageBubble {
 
-    background:#43A047;
+    background: #43A047;
 
-    color:white;
+    color: white;
 
-    border-top-right-radius:6px;
+    border-top-right-radius: 6px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
 
 }
 
@@ -2343,19 +2211,19 @@
    CHAT INPUT
 =========================== */
 
-.chatInputContainer{
+.chatInputContainer {
 
-    display:flex;
+    display: flex;
 
-    align-items:center;
+    align-items: center;
 
-    gap:15px;
+    gap: 15px;
 
-    padding:20px 25px;
+    padding: 20px 25px;
 
-    border-top:1px solid rgba(0,0,0,.08);
+    border-top: 1px solid rgba(0, 0, 0, .08);
 
-    background:white;
+    background: white;
 
 }
 
@@ -2438,18 +2306,1108 @@
     background: #43A047;
 
 }
-.messages{
 
-    flex:1;
+.messages {
 
-    overflow-y:auto;
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    display: flex;
+
+    gap: 18px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   PROFILE PAGE
+========================================== */
+
+.profilePage{
+
+    min-height:100vh;
+
+    background:#F6F9F6;
+
+    padding:120px 7% 70px;
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.profileHeader{
+
+    margin-bottom:40px;
+
+}
+
+.profileHeader h1{
+
+    font-size:48px;
+
+    color:#1B5E20;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+}
+
+.profileHeader p{
+
+    color:#666;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.profileGrid{
+
+    display:grid;
+
+    grid-template-columns:320px 1fr;
+
+    gap:35px;
+
+    align-items:start;
+
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.profileSidebar{
+
+    position:sticky;
+
+    top:110px;
+
+}
+
+/* ==========================================
+   PROFILE CARD
+========================================== */
+
+.profileCard{
+
+    background:white;
+
+    border-radius:28px;
 
     padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.avatarCircle{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #66BB6A
+    );
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:52px;
+
+    font-weight:bold;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+}
+
+.profileCard h2{
+
+    color:#114B1D;
+
+    font-size:30px;
+
+    margin-bottom:12px;
+
+}
+
+.verifiedBadge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:30px;
+
+}
+
+/* ==========================================
+   PROFILE INFO
+========================================== */
+
+.profileMeta{
 
     display:flex;
 
     flex-direction:column;
 
     gap:18px;
+
+    margin-bottom:30px;
+
+}
+
+.profileMeta div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    text-align:left;
+
+}
+
+.profileMeta svg{
+
+    color:#43A047;
+
+}
+
+.profileMeta span{
+
+    color:#555;
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+   STATS
+========================================== */
+
+.profileStats{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.profileStats div{
+
+    background:#F8FBF8;
+
+    border-radius:18px;
+
+    padding:15px 10px;
+
+}
+
+.profileStats h3{
+
+    color:#2E7D32;
+
+    font-size:26px;
+
+    margin-bottom:5px;
+
+}
+
+.profileStats span{
+
+    font-size:13px;
+
+    color:#666;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.primaryBtn{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.primaryBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.profileContent{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+.profileSection{
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:30px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.sectionHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.sectionHeader h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#114B1D;
+
+    font-size:28px;
+
+}
+
+.sectionHeader svg{
+
+    color:#43A047;
+
+}
+
+.sectionButton{
+
+    text-decoration:none;
+
+    background:#2E7D32;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.sectionButton:hover{
+
+    background:#43A047;
+
+}
+/* ==========================================
+   FARM GRID
+========================================== */
+
+.farmGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:22px;
+
+}
+
+.farmCard{
+
+    border:1px solid #E6ECE6;
+
+    border-radius:22px;
+
+    padding:22px;
+
+    transition:.35s;
+
+    background:#FAFCFA;
+
+}
+
+.farmCard:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#43A047;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.farmCard h3{
+
+    color:#114B1D;
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+}
+
+.farmCard p{
+
+    color:#555;
+
+    margin-bottom:10px;
+
+    font-size:15px;
+
+}
+
+.farmCard span{
+
+    display:inline-block;
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+.farmCard small{
+
+    display:block;
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-bottom:18px;
+
+}
+
+.viewBtn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    text-decoration:none;
+
+    color:#2E7D32;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.viewBtn:hover{
+
+    gap:12px;
+
+}
+
+/* ==========================================
+   DOCUMENTS
+========================================== */
+
+.documentGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.documentCard{
+
+    background:#FAFCFA;
+
+    border:1px solid #E6ECE6;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.documentCard:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#43A047;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+}
+
+.documentCard svg:first-child{
+
+    width:34px;
+
+    height:34px;
+
+    color:#43A047;
+
+    margin-bottom:18px;
+
+}
+
+.documentCard h3{
+
+    color:#114B1D;
+
+    font-size:17px;
+
+    margin-bottom:10px;
+
+    min-height:44px;
+
+}
+
+.documentCard span{
+
+    display:inline-block;
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+/* ==========================================
+   DOCUMENT BUTTONS
+========================================== */
+
+.documentActions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+}
+
+.documentActions button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#F1F5F1;
+
+    color:#2E7D32;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.documentActions button:hover{
+
+    background:#2E7D32;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+.uploadButton{
+
+    width:100%;
+
+    margin-top:28px;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.uploadButton:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+/* ==========================================
+   FORMS
+========================================== */
+
+.profileForm{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+.formRow{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.inputGroup{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.fullWidth{
+
+    grid-column:1/-1;
+
+}
+
+.inputGroup label{
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.inputGroup input{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border:1px solid #D8E2D8;
+
+    border-radius:14px;
+
+    background:#FCFDFC;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.inputGroup input:focus{
+
+    outline:none;
+
+    border-color:#43A047;
+
+    box-shadow:0 0 0 4px rgba(67,160,71,.12);
+
+}
+
+/* ==========================================
+   SAVE BUTTON
+========================================== */
+
+.saveButton{
+
+    align-self:flex-start;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    padding:15px 28px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.saveButton:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================
+   PREFERENCES
+========================================== */
+
+.settingsGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.settingCard{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:22px;
+
+    border:1px solid #E6ECE6;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    background:#FAFCFA;
+
+}
+
+.settingCard:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#43A047;
+
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+
+}
+
+.settingCard svg{
+
+    color:#43A047;
+
+    flex-shrink:0;
+
+}
+
+.settingCard h3{
+
+    color:#114B1D;
+
+    margin-bottom:5px;
+
+    font-size:17px;
+
+}
+
+.settingCard p{
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+.logoutSection{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.logoutButton{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    background:#D32F2F;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.logoutButton:hover{
+
+    background:#C62828;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 24px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================
+   CARD HOVER
+========================================== */
+
+.profileCard,
+.profileSection{
+
+    transition:.35s;
+
+}
+
+.profileCard:hover,
+.profileSection:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1100px){
+
+    .profileGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .profileSidebar{
+
+        position:static;
+
+    }
+
+    .profileCard{
+
+        max-width:420px;
+
+        margin:auto;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .farmGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .documentGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .settingsGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .sectionHeader{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+    .formRow{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .saveButton{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .logoutButton{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .profilePage{
+
+        padding:110px 5% 60px;
+
+    }
+
+    .profileHeader h1{
+
+        font-size:36px;
+
+    }
+
+    .profileHeader p{
+
+        font-size:16px;
+
+    }
+
+    .profileCard{
+
+        padding:25px;
+
+    }
+
+    .avatarCircle{
+
+        width:90px;
+
+        height:90px;
+
+        font-size:40px;
+
+    }
+
+    .profileStats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .profileSection{
+
+        padding:22px;
+
+    }
 
 }
