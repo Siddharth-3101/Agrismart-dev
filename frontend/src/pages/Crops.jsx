@@ -270,7 +270,7 @@ function Crops() {
                     </div>
 
                     <span
-                        className={`status ${crop.health.toLowerCase()}`}
+                        className={`cropStatus ${crop.health.toLowerCase()}`}
                     >
 
                         {crop.health}

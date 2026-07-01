@@ -1284,13 +1284,11 @@ padding-bottom: 0;
 
 .cropCard{
 
-    display:flex;
 
     justify-content:space-between;
 
     align-items:center;
 
-    padding:28px;
 
     border-radius:18px;
 
@@ -1668,15 +1666,7 @@ padding-bottom: 0;
 
     }
 
-    .cropCard{
 
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:20px;
-
-    }
 
     .weatherCard{
 
@@ -1811,6 +1801,65 @@ padding-bottom: 0;
 @media(max-width:768px){
 
     .polygonSummary{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+/* ==========================================
+        LEAFLET VIEWER
+========================================== */
+
+.viewerContainer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.viewerInfo{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.viewerInfo h3{
+
+    color:#145A32;
+
+    margin-bottom:10px;
+
+}
+
+.viewerInfo p{
+
+    color:#555;
+
+    margin:8px 0;
+
+    line-height:1.6;
+
+}
+
+@media(max-width:768px){
+
+    .viewerInfo{
 
         grid-template-columns:1fr;
 

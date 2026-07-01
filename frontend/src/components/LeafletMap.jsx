@@ -1,23 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
 
     MapContainer,
     TileLayer,
+    Polygon,
+    Marker,
     LayersControl,
-    ScaleControl
+    ScaleControl,
+    useMapEvents
 
 } from "react-leaflet";
 
-import Geoman from "react-leaflet-geoman-v2";
-
+import L from "leaflet";
 import * as turf from "@turf/turf";
 
-import L from "leaflet";
-
 import "leaflet/dist/leaflet.css";
-
-import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
 
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
@@ -35,11 +33,48 @@ L.Icon.Default.mergeOptions({
 
 });
 
-const {
+const { BaseLayer } = LayersControl;
 
-    BaseLayer
+/* ==========================================
+        CLICK HANDLER
+========================================== */
 
-} = LayersControl;
+function MapClickHandler({
+
+    coordinates,
+    setCoordinates
+
+}){
+
+    useMapEvents({
+
+        click(e){
+
+            setCoordinates(prev=>[
+
+                ...prev,
+
+                [
+
+                    e.latlng.lat,
+
+                    e.latlng.lng
+
+                ]
+
+            ]);
+
+        }
+
+    });
+
+    return null;
+
+}
+
+/* ==========================================
+        MAIN MAP
+========================================== */
 
 function LeafletMap({
 
@@ -47,69 +82,93 @@ function LeafletMap({
 
 }){
 
-    const [polygon,setPolygon] = useState(null);
+    const [coordinates,setCoordinates] = useState([]);
 
-    /* =======================================
-            SAVE POLYGON
-    ======================================= */
+    const defaultCenter = [
 
-    const savePolygon = (layer)=>{
+        11.0168,
 
-        if(!layer)
+        76.9558
+
+    ];
+
+    useEffect(()=>{
+
+        if(coordinates.length<3){
+
+            onPolygonChange({
+
+                geoJson:null,
+
+                coordinates,
+
+                areaSquareMeters:0,
+
+                areaAcres:0,
+
+                areaHectares:0,
+
+                center:null
+
+            });
 
             return;
 
-        const geoJson = layer.toGeoJSON();
+        }
 
-        const coords = geoJson.geometry.coordinates[0];
+        const geoJson = turf.polygon([
 
-        const polygonObject = turf.polygon([coords]);
+            coordinates.map(point=>
 
-        const area = turf.area(polygonObject);
+                [
 
-        const coordinates = coords.map(
+                    point[1],
 
-            ([lng,lat])=>[lat,lng]
+                    point[0]
 
-        );
+                ]
 
-        const center = layer.getBounds().getCenter();
+            ).concat([
 
-        const data = {
+                [
+
+                    coordinates[0][1],
+
+                    coordinates[0][0]
+
+                ]
+
+            ])
+
+        ]);
+
+        const sqm = turf.area(geoJson);
+
+        const acres = sqm*0.000247105;
+
+        const hectares = sqm/10000;
+
+        const bounds = L.latLngBounds(coordinates);
+
+        const center = bounds.getCenter();
+
+        onPolygonChange({
 
             geoJson,
 
             coordinates,
 
-            area,
+            center,
 
-            acres:Number(
+            areaSquareMeters:Number(sqm.toFixed(2)),
 
-                area*0.000247105
+            areaAcres:Number(acres.toFixed(2)),
 
-            ).toFixed(2),
+            areaHectares:Number(hectares.toFixed(2))
 
-            hectares:Number(
+        });
 
-                area/10000
-
-            ).toFixed(2),
-
-            center:{
-
-                lat:center.lat,
-
-                lng:center.lng
-
-            }
-
-        };
-
-        setPolygon(data);
-
-        onPolygonChange(data);
-
-    };
+    },[coordinates,onPolygonChange]);
 
     return(
 
@@ -117,7 +176,7 @@ function LeafletMap({
 
             <MapContainer
 
-                center={[11.0168,76.9558]}
+                center={defaultCenter}
 
                 zoom={16}
 
@@ -127,7 +186,7 @@ function LeafletMap({
 
                     width:"100%",
 
-                    height:"650px",
+                    height:"550px",
 
                     borderRadius:"18px"
 
@@ -160,17 +219,127 @@ function LeafletMap({
                         />
 
                     </BaseLayer>
+                                        <BaseLayer name="Satellite + Labels">
+
+                        <TileLayer
+                            attribution="Esri"
+                            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                        />
+
+                        <TileLayer
+                            attribution="OpenStreetMap"
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            opacity={0.35}
+                        />
+
+                    </BaseLayer>
 
                 </LayersControl>
 
-                {/* Satellite Labels */}
+                <ScaleControl position="bottomleft" />
 
-                <TileLayer
+                <MapClickHandler
 
-                    attribution="Esri"
+                    coordinates={coordinates}
 
-                    url="https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"
+                    setCoordinates={setCoordinates}
 
                 />
 
-                <ScaleControl position="bottomleft"/>
+                {/* ===============================
+                        POLYGON VERTICES
+                ================================ */}
+
+                {
+
+                    coordinates.map((point,index)=>(
+
+                        <Marker
+
+                            key={index}
+
+                            position={point}
+
+                        />
+
+                    ))
+
+                }
+
+                {/* ===============================
+                        DRAW POLYGON
+                ================================ */}
+
+                {
+
+                    coordinates.length>=3 && (
+
+                        <Polygon
+
+                            positions={coordinates}
+
+                            pathOptions={{
+
+                                color:"#2E7D32",
+
+                                fillColor:"#4CAF50",
+
+                                fillOpacity:0.35,
+
+                                weight:4
+
+                            }}
+
+                        />
+
+                    )
+
+                }
+
+            </MapContainer>
+
+            {/* ===============================
+                    MAP ACTIONS
+            ================================ */}
+
+            <div className="mapActions">
+
+                <button
+
+                    type="button"
+
+                    className="clearPolygonBtn"
+
+                    onClick={()=>setCoordinates([])}
+
+                >
+
+                    Clear Polygon
+
+                </button>
+
+                <div className="polygonInfo">
+
+                    <span>
+
+                        Points :
+
+                        <strong>
+
+                            {coordinates.length}
+
+                        </strong>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    );
+
+}
+
+export default LeafletMap;
