@@ -2058,16 +2058,21 @@
    MESSAGE
 =========================== */
 
-.message {
+.messages{
 
-    display: flex;
+    flex:1;
 
-    gap: 18px;
+    overflow-y:auto;
 
-    align-items: flex-start;
+    padding:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
 
 }
-
 /* ===========================
    MESSAGE BUBBLE
 =========================== */
@@ -2346,113 +2351,245 @@
 
 
 
-/* ==========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
    PROFILE PAGE
-========================================== */
+=================================================== */
 
 .profilePage{
-
+    
     min-height:100vh;
+    
 
-    background:#F6F9F6;
+    background:#F7FAF7;
 
-    padding:120px 7% 70px;
-
-}
-
-/* ==========================================
-   HEADER
-========================================== */
-
-.profileHeader{
-
-    margin-bottom:40px;
+    padding:120px 6% 80px;
 
 }
 
-.profileHeader h1{
+/* ===================================================
+   SETTINGS LAYOUT
+=================================================== */
 
-    font-size:48px;
+.settingsContainer{
+
+    display:grid;
+
+    grid-template-columns:420px minmax(0,1fr);
+
+    gap:36px;
+
+    align-items: start;
+
+}
+
+/* ===================================================
+   SIDEBAR
+=================================================== */
+
+.settingsSidebar{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:40px 30px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+
+    position:sticky;
+
+    top:110px;
+    min-height: 600px;
+
+}
+
+.settingsSidebar h2{
+
+    font-size:34px;
 
     color:#1B5E20;
 
-    margin-bottom:10px;
+    margin-bottom:28px;
 
     font-weight:700;
 
 }
 
-.profileHeader p{
+/* ===================================================
+   SIDEBAR BUTTONS
+=================================================== */
+
+.settingsSidebar button{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    border:none;
+
+    background:none;
+
+    border-radius:14px;
+
+    padding:12px 16px;
+
+    margin-bottom:8px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    color:#555;
+
+    transition:.25s;
+
+}
+
+.settingsSidebar button svg{
+
+    font-size:18px;
+
+}
+
+.settingsSidebar button:hover{
+
+    background:#F1F8F1;
+
+    color:#2E7D32;
+
+}
+
+.activeTab{
+
+    background:#E8F5E9 !important;
+
+    color:#2E7D32 !important;
+
+    font-weight:600 !important;
+
+}
+
+.logoutSide{
+
+    margin-top:35px;
+
+    color:#D32F2F !important;
+
+}
+
+.logoutSide:hover{
+
+    background:#FFECEC !important;
+
+}
+
+/* ===================================================
+   RIGHT CONTENT
+=================================================== */
+
+.settingsContent{
+
+    display:flex;
+
+    flex-direction:column;
+    width:100%;
+    gap:30px;
+
+}
+
+.contentCard{
+
+    background:rgb(255, 255, 255);
+
+    border-radius:24px;
+    width:100%;
+
+    padding:48px;
+    
+
+    box-shadow:0 12px 35px rgba(0,0,0,.05);
+
+}
+
+.contentCard h1{
+
+    font-size:42px;
+
+    color:#1B5E20;
+
+    margin-bottom:8px;
+
+}
+
+.contentCard>p{
 
     color:#666;
 
-    font-size:18px;
+    margin-bottom:30px;
+
+    font-size:17px;
 
     line-height:1.6;
 
 }
 
-/* ==========================================
-   GRID
-========================================== */
+/* ===================================================
+   PROFILE HEADER
+=================================================== */
 
-.profileGrid{
+.profileTop{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:320px 1fr;
+    align-items:center;
 
-    gap:35px;
+    gap:28px;
 
-    align-items:start;
-
-}
-
-/* ==========================================
-   SIDEBAR
-========================================== */
-
-.profileSidebar{
-
-    position:sticky;
-
-    top:110px;
+    margin-bottom:40px;
 
 }
 
-/* ==========================================
-   PROFILE CARD
-========================================== */
+.avatar{
 
-.profileCard{
+    width:95px;
 
-    background:white;
-
-    border-radius:28px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-
-}
-
-.avatarCircle{
-
-    width:120px;
-
-    height:120px;
+    height:95px;
 
     border-radius:50%;
 
     background:linear-gradient(
         135deg,
         #2E7D32,
-        #66BB6A
+        #43A047
     );
-
-    color:white;
 
     display:flex;
 
@@ -2460,27 +2597,25 @@
 
     align-items:center;
 
-    font-size:52px;
+    color:white;
 
-    font-weight:bold;
+    font-size:34px;
 
-    margin:auto;
-
-    margin-bottom:25px;
+    font-weight:700;
 
 }
 
-.profileCard h2{
-
-    color:#114B1D;
+.profileTop h2{
 
     font-size:30px;
 
-    margin-bottom:12px;
+    color:#1B5E20;
+
+    margin-bottom:10px;
 
 }
 
-.verifiedBadge{
+.verified{
 
     display:inline-flex;
 
@@ -2500,537 +2635,18 @@
 
     font-weight:600;
 
-    margin-bottom:30px;
-
 }
-
-/* ==========================================
-   PROFILE INFO
-========================================== */
-
-.profileMeta{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-
-    margin-bottom:30px;
-
-}
-
-.profileMeta div{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    text-align:left;
-
-}
-
-.profileMeta svg{
-
-    color:#43A047;
-
-}
-
-.profileMeta span{
-
-    color:#555;
-
-    font-size:15px;
-
-}
-
-/* ==========================================
-   STATS
-========================================== */
-
-.profileStats{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:15px;
-
-    margin-bottom:30px;
-
-}
-
-.profileStats div{
-
-    background:#F8FBF8;
-
-    border-radius:18px;
-
-    padding:15px 10px;
-
-}
-
-.profileStats h3{
-
-    color:#2E7D32;
-
-    font-size:26px;
-
-    margin-bottom:5px;
-
-}
-
-.profileStats span{
-
-    font-size:13px;
-
-    color:#666;
-
-}
-
-/* ==========================================
-   BUTTONS
-========================================== */
-
-.primaryBtn{
-
-    width:100%;
-
-    border:none;
-
-    border-radius:50px;
-
-    padding:15px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:10px;
-
-    background:linear-gradient(
-        135deg,
-        #2E7D32,
-        #43A047
-    );
-
-    color:white;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.primaryBtn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
-
-}
-
-/* ==========================================
-   CONTENT
-========================================== */
-
-.profileContent{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:30px;
-
-}
-
-.profileSection{
-
-    background:white;
-
-    border-radius:28px;
-
-    padding:30px;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-
-}
-
-.sectionHeader{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:25px;
-
-}
-
-.sectionHeader h2{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    color:#114B1D;
-
-    font-size:28px;
-
-}
-
-.sectionHeader svg{
-
-    color:#43A047;
-
-}
-
-.sectionButton{
-
-    text-decoration:none;
-
-    background:#2E7D32;
-
-    color:white;
-
-    padding:12px 22px;
-
-    border-radius:50px;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-.sectionButton:hover{
-
-    background:#43A047;
-
-}
-/* ==========================================
-   FARM GRID
-========================================== */
-
-.farmGrid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-
-    gap:22px;
-
-}
-
-.farmCard{
-
-    border:1px solid #E6ECE6;
-
-    border-radius:22px;
-
-    padding:22px;
-
-    transition:.35s;
-
-    background:#FAFCFA;
-
-}
-
-.farmCard:hover{
-
-    transform:translateY(-5px);
-
-    border-color:#43A047;
-
-    box-shadow:0 15px 30px rgba(0,0,0,.08);
-
-}
-
-.farmCard h3{
-
-    color:#114B1D;
-
-    font-size:20px;
-
-    margin-bottom:8px;
-
-}
-
-.farmCard p{
-
-    color:#555;
-
-    margin-bottom:10px;
-
-    font-size:15px;
-
-}
-
-.farmCard span{
-
-    display:inline-block;
-
-    background:#E8F5E9;
-
-    color:#2E7D32;
-
-    padding:6px 14px;
-
-    border-radius:20px;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    margin-bottom:10px;
-
-}
-
-.farmCard small{
-
-    display:block;
-
-    color:#777;
-
-    font-size:13px;
-
-    margin-bottom:18px;
-
-}
-
-.viewBtn{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    text-decoration:none;
-
-    color:#2E7D32;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-.viewBtn:hover{
-
-    gap:12px;
-
-}
-
-/* ==========================================
-   DOCUMENTS
-========================================== */
-
-.documentGrid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:20px;
-
-}
-
-.documentCard{
-
-    background:#FAFCFA;
-
-    border:1px solid #E6ECE6;
-
-    border-radius:20px;
-
-    padding:24px;
-
-    text-align:center;
-
-    transition:.35s;
-
-}
-
-.documentCard:hover{
-
-    transform:translateY(-5px);
-
-    border-color:#43A047;
-
-    box-shadow:0 12px 28px rgba(0,0,0,.08);
-
-}
-
-.documentCard svg:first-child{
-
-    width:34px;
-
-    height:34px;
-
-    color:#43A047;
-
-    margin-bottom:18px;
-
-}
-
-.documentCard h3{
-
-    color:#114B1D;
-
-    font-size:17px;
-
-    margin-bottom:10px;
-
-    min-height:44px;
-
-}
-
-.documentCard span{
-
-    display:inline-block;
-
-    background:#E8F5E9;
-
-    color:#2E7D32;
-
-    padding:6px 14px;
-
-    border-radius:20px;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    margin-bottom:18px;
-
-}
-
-/* ==========================================
-   DOCUMENT BUTTONS
-========================================== */
-
-.documentActions{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:12px;
-
-}
-
-.documentActions button{
-
-    width:42px;
-
-    height:42px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#F1F5F1;
-
-    color:#2E7D32;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.documentActions button:hover{
-
-    background:#2E7D32;
-
-    color:white;
-
-    transform:translateY(-3px);
-
-}
-
-.uploadButton{
-
-    width:100%;
-
-    margin-top:28px;
-
-    border:none;
-
-    border-radius:50px;
-
-    padding:16px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:12px;
-
-    background:linear-gradient(
-        135deg,
-        #2E7D32,
-        #43A047
-    );
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.uploadButton:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
-
-}
-/* ==========================================
-   FORMS
-========================================== */
+/* ===================================================
+   PROFILE FORM
+=================================================== */
 
 .profileForm{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:22px;
-
-}
-
-.formRow{
 
     display:grid;
 
     grid-template-columns:repeat(2,1fr);
 
-    gap:20px;
+    gap:22px;
 
 }
 
@@ -3040,13 +2656,7 @@
 
     flex-direction:column;
 
-    gap:10px;
-
-}
-
-.fullWidth{
-
-    grid-column:1/-1;
+    gap:8px;
 
 }
 
@@ -3054,23 +2664,21 @@
 
     font-size:14px;
 
-    font-weight:600;
+    color:#666;
 
-    color:#444;
+    font-weight:600;
 
 }
 
 .inputGroup input{
 
-    width:100%;
+    padding:14px 18px;
 
-    padding:15px 18px;
-
-    border:1px solid #D8E2D8;
+    border:1px solid #DCE5DC;
 
     border-radius:14px;
 
-    background:#FCFDFC;
+    background:#FAFCFA;
 
     font-size:15px;
 
@@ -3088,23 +2696,25 @@
 
 }
 
-/* ==========================================
-   SAVE BUTTON
-========================================== */
+.inputGroup input:disabled{
 
-.saveButton{
+    background:#F2F4F2;
 
-    align-self:flex-start;
+    color:#888;
 
-    display:flex;
+    cursor:not-allowed;
 
-    align-items:center;
+}
 
-    gap:10px;
+.saveBtn{
+
+    width:220px;
+
+    margin-top:10px;
+
+    padding:15px;
 
     border:none;
-
-    padding:15px 28px;
 
     border-radius:50px;
 
@@ -3126,7 +2736,7 @@
 
 }
 
-.saveButton:hover{
+.saveBtn:hover{
 
     transform:translateY(-3px);
 
@@ -3134,91 +2744,23 @@
 
 }
 
-/* ==========================================
-   PREFERENCES
-========================================== */
+/* ===================================================
+   SECTION HEADER
+=================================================== */
 
-.settingsGrid{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:20px;
-
-}
-
-.settingCard{
+.sectionHeader{
 
     display:flex;
 
-    align-items:center;
+    justify-content:space-between;
 
-    gap:18px;
+    align-items:flex-start;
 
-    padding:22px;
-
-    border:1px solid #E6ECE6;
-
-    border-radius:18px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    background:#FAFCFA;
+    margin-bottom:28px;
 
 }
 
-.settingCard:hover{
-
-    transform:translateY(-4px);
-
-    border-color:#43A047;
-
-    box-shadow:0 10px 24px rgba(0,0,0,.08);
-
-}
-
-.settingCard svg{
-
-    color:#43A047;
-
-    flex-shrink:0;
-
-}
-
-.settingCard h3{
-
-    color:#114B1D;
-
-    margin-bottom:5px;
-
-    font-size:17px;
-
-}
-
-.settingCard p{
-
-    color:#666;
-
-    font-size:14px;
-
-}
-
-/* ==========================================
-   LOGOUT
-========================================== */
-
-.logoutSection{
-
-    display:flex;
-
-    justify-content:flex-end;
-
-}
-
-.logoutButton{
+.greenBtn{
 
     display:flex;
 
@@ -3228,11 +2770,15 @@
 
     border:none;
 
-    padding:15px 30px;
-
     border-radius:50px;
 
-    background:#D32F2F;
+    padding:14px 24px;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
 
     color:white;
 
@@ -3246,59 +2792,314 @@
 
 }
 
-.logoutButton:hover{
-
-    background:#C62828;
+.greenBtn:hover{
 
     transform:translateY(-3px);
 
-    box-shadow:0 12px 24px rgba(0,0,0,.15);
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
 
 }
 
-/* ==========================================
+/* ===================================================
+   DOCUMENT TABLE
+=================================================== */
+
+.documentTable{
+
+    width:100%;
+
+}
+
+.documentHead{
+
+    display:grid;
+
+    grid-template-columns:2.8fr 1.2fr 1.2fr 170px;
+
+    padding:16px 24px;
+
+    background:#F5F8F5;
+
+    border-radius:16px;
+
+    font-weight:600;
+
+    color:#555;
+
+    margin-bottom:12px;
+
+}
+
+.documentRow{
+
+    display:grid;
+
+    grid-template-columns:2.8fr 1.2fr 1.2fr 170px;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+    border:1px solid #ECECEC;
+
+    border-radius:16px;
+
+    margin-bottom:14px;
+
+    transition:.25s;
+
+}
+
+.documentRow:hover{
+
+    border-color:#43A047;
+
+    box-shadow:0 8px 22px rgba(0,0,0,.05);
+
+}
+
+.documentName{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#1B5E20;
+
+}
+
+.documentName svg{
+
+    color:#2E7D32;
+
+    font-size:22px;
+
+}
+/* ===================================================
+   DOCUMENT STATUS
+=================================================== */
+
+.status{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:max-content;
+
+    padding:7px 16px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.status.verified{
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+}
+
+.status.pending{
+
+    background:#FFF8E1;
+
+    color:#F9A825;
+
+}
+
+.status.rejected{
+
+    background:#FFEBEE;
+
+    color:#D32F2F;
+
+}
+
+/* ===================================================
+   DOCUMENT ACTIONS
+=================================================== */
+
+.documentActions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+}
+
+.documentActions button{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#EEF6EE;
+
+    color:#2E7D32;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.documentActions button:hover{
+
+    background:#2E7D32;
+
+    color:white;
+
+}
+
+/* ===================================================
+   TOGGLES
+=================================================== */
+
+.toggleList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.toggleList label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 22px;
+
+    border:1px solid #E6ECE6;
+
+    border-radius:16px;
+
+    background:#FAFCFA;
+
+    font-size:16px;
+
+    font-weight:500;
+
+}
+
+.toggleList input{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:#2E7D32;
+
+}
+
+/* ===================================================
+   LANGUAGE
+=================================================== */
+
+.languageGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+
+    gap:18px;
+
+}
+
+.languageGrid button{
+
+    border:1px solid #E1E6E1;
+
+    border-radius:16px;
+
+    background:white;
+
+    padding:18px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.languageGrid button:hover{
+
+    background:#2E7D32;
+
+    color:white;
+
+    border-color:#2E7D32;
+
+}
+
+/* ===================================================
    CARD HOVER
-========================================== */
+=================================================== */
 
-.profileCard,
-.profileSection{
+.contentCard{
 
-    transition:.35s;
-
-}
-
-.profileCard:hover,
-.profileSection:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 18px 40px rgba(0,0,0,.10);
+    transition:.3s;
 
 }
 
-/* ==========================================
+.contentCard:hover{
+
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+}
+
+/* ===================================================
    RESPONSIVE
-========================================== */
+=================================================== */
 
 @media(max-width:1100px){
 
-    .profileGrid{
+    .settingsContainer{
 
         grid-template-columns:1fr;
 
     }
 
-    .profileSidebar{
+    .settingsSidebar{
 
-        position:static;
+        position:relative;
 
-    }
-
-    .profileCard{
-
-        max-width:420px;
-
-        margin:auto;
+        top:0;
 
     }
 
@@ -3306,21 +3107,25 @@
 
 @media(max-width:900px){
 
-    .farmGrid{
+    .documentHead{
 
-        grid-template-columns:1fr;
-
-    }
-
-    .documentGrid{
-
-        grid-template-columns:1fr;
+        display:none;
 
     }
 
-    .settingsGrid{
+    .documentRow{
 
         grid-template-columns:1fr;
+
+        gap:16px;
+
+        padding:20px;
+
+    }
+
+    .documentActions{
+
+        justify-content:flex-start;
 
     }
 
@@ -3328,35 +3133,31 @@
 
 @media(max-width:768px){
 
-    .sectionHeader{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:18px;
-
-    }
-
-    .formRow{
+    .profileForm{
 
         grid-template-columns:1fr;
 
     }
 
-    .saveButton{
+    .sectionHeader{
 
-        width:100%;
+        flex-direction:column;
 
-        justify-content:center;
+        gap:20px;
 
     }
 
-    .logoutButton{
+    .profileTop{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .saveBtn{
 
         width:100%;
-
-        justify-content:center;
 
     }
 
@@ -3370,43 +3171,27 @@
 
     }
 
-    .profileHeader h1{
+    .contentCard{
 
-        font-size:36px;
-
-    }
-
-    .profileHeader p{
-
-        font-size:16px;
+        padding:24px;
 
     }
 
-    .profileCard{
+    .contentCard h1{
 
-        padding:25px;
-
-    }
-
-    .avatarCircle{
-
-        width:90px;
-
-        height:90px;
-
-        font-size:40px;
+        font-size:32px;
 
     }
 
-    .profileStats{
+    .settingsSidebar{
 
-        grid-template-columns:1fr;
+        padding:20px;
 
     }
 
-    .profileSection{
+    .settingsSidebar h2{
 
-        padding:22px;
+        font-size:28px;
 
     }
 

@@ -1,751 +1,755 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import "../styles/sid.css";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FloatingAI from "../components/FloatingAI";
 
-import "../styles/sid.css";
-
 import {
-    User,
-    Mail,
-    Phone,
-    MapPin,
-    ShieldCheck,
-    FileText,
-    Lock,
-    Bell,
-    Globe,
-    LogOut,
-    Edit3,
-    ArrowRight,
-    Tractor,
-    Eye,
-    Download,
-    Upload,
-    Save
-} from "lucide-react";
 
-function Profile() {
+    FaUser,
 
-    const [profile, setProfile] = useState({
+    FaTractor,
 
-        name: "Siddharth G",
+    FaFileAlt,
 
-        email: "siddharth@agrismart.com",
+    FaLock,
 
-        phone: "+91 9876543210",
+    FaBell,
 
-        district: "Coimbatore",
+    FaLanguage,
 
-        state: "Tamil Nadu"
+    FaSignOutAlt,
 
-    });
+    FaCheckCircle,
 
-    const [password, setPassword] = useState({
+    FaUpload,
 
-        current: "",
+} from "react-icons/fa";
 
-        newPassword: "",
+const documents = [
 
-        confirmPassword: ""
+    {
 
-    });
+        name:"Aadhaar Card",
 
-    const farms = [
+        status:"Verified",
 
-        {
+        uploaded:"12 Jun 2026"
 
-            id:1,
+    },
 
-            name:"Green Valley Farm",
+    {
 
-            crop:"Rice",
+        name:"Farmer Registration",
 
-            area:"4 Acres",
+        status:"Verified",
 
-            soil:"Black Soil"
+        uploaded:"10 Jun 2026"
 
-        },
+    },
 
-        {
+    {
 
-            id:2,
+        name:"Land Ownership Certificate",
 
-            name:"South Farm",
+        status:"Verified",
 
-            crop:"Cotton",
+        uploaded:"08 Jun 2026"
 
-            area:"2 Acres",
+    },
 
-            soil:"Red Soil"
+    {
 
-        },
+        name:"Soil Health Card",
 
-        {
+        status:"Pending",
 
-            id:3,
+        uploaded:"-"
 
-            name:"West Farm",
+    },
 
-            crop:"Groundnut",
+    {
 
-            area:"3 Acres",
+        name:"Bank Passbook",
 
-            soil:"Sandy Soil"
+        status:"Verified",
 
-        }
+        uploaded:"04 Jun 2026"
 
-    ];
+    }
 
-    const documents = [
+];
 
-        "Aadhaar Card",
+const Profile = () => {
 
-        "Land Ownership Certificate",
+    const navigate = useNavigate();
 
-        "Farmer Registration",
-
-        "Soil Health Card",
-
-        "Bank Passbook"
-
-    ];
+    const [activeTab,setActiveTab]=useState("profile");
 
     return(
 
-        <>
+    <>
 
-            <Navbar/>
+        <Navbar/>
 
-            <FloatingAI/>
+        <FloatingAI/>
 
-            <div className="profilePage">
+        <div className="profilePage">
 
-                <div className="profileHeader">
+            <div className="settingsContainer">
 
-                    <h1>My Account</h1>
+                {/* =======================
+                    SIDEBAR
+                ======================== */}
 
-                    <p>
+                <div className="settingsSidebar">
 
-                        Manage your profile, farms,
-                        documents and security settings.
+                    <h2>
 
-                    </p>
+                        Account
+
+                    </h2>
+
+                    <button
+
+                        className={activeTab==="profile" ? "activeTab" : ""}
+
+                        onClick={()=>setActiveTab("profile")}
+
+                    >
+
+                        <FaUser/>
+
+                        My Profile
+
+                    </button>
+
+                    <button
+
+                        onClick={()=>navigate("/farm-management")}
+
+                    >
+
+                        <FaTractor/>
+
+                        My Farms
+
+                    </button>
+
+                    <button
+
+                        className={activeTab==="documents" ? "activeTab" : ""}
+
+                        onClick={()=>setActiveTab("documents")}
+
+                    >
+
+                        <FaFileAlt/>
+
+                        Documents
+
+                    </button>
+
+                    <button
+
+                        className={activeTab==="security" ? "activeTab" : ""}
+
+                        onClick={()=>setActiveTab("security")}
+
+                    >
+
+                        <FaLock/>
+
+                        Security
+
+                    </button>
+
+                    <button
+
+                        className={activeTab==="notifications" ? "activeTab" : ""}
+
+                        onClick={()=>setActiveTab("notifications")}
+
+                    >
+
+                        <FaBell/>
+
+                        Notifications
+
+                    </button>
+
+                    <button
+
+                        className={activeTab==="language" ? "activeTab" : ""}
+
+                        onClick={()=>setActiveTab("language")}
+
+                    >
+
+                        <FaLanguage/>
+
+                        Language
+
+                    </button>
+
+                    <button className="logoutSide">
+
+                        <FaSignOutAlt/>
+
+                        Logout
+
+                    </button>
 
                 </div>
 
-                <div className="profileGrid">
+                {/* =======================
+                    CONTENT
+                ======================== */}
 
-                    {/* LEFT */}
+                <div className="settingsContent">
 
-                    <aside className="profileSidebar">
+                {
 
-                        <div className="profileCard">
+                    activeTab==="profile" && (
 
-                            <div className="avatarCircle">
+                    <div className="contentCard">
 
-                                {profile.name.charAt(0)}
+                        <h1>
 
-                            </div>
+                            My Profile
 
-                            <h2>{profile.name}</h2>
+                        </h1>
 
-                            <span className="verifiedBadge">
+                        <p>
 
-                                <ShieldCheck size={16}/>
+                            Manage your personal information.
 
-                                Verified Farmer
+                        </p>
 
-                            </span>
+                        <div className="profileTop">
 
-                            <div className="profileMeta">
+                            <div className="avatar">
 
-                                <div>
-
-                                    <Mail size={18}/>
-
-                                    <span>{profile.email}</span>
-
-                                </div>
-
-                                <div>
-
-                                    <Phone size={18}/>
-
-                                    <span>{profile.phone}</span>
-
-                                </div>
-
-                                <div>
-
-                                    <MapPin size={18}/>
-
-                                    <span>
-
-                                        {profile.district},
-
-                                        {" "}
-
-                                        {profile.state}
-
-                                    </span>
-
-                                </div>
+                                SG
 
                             </div>
 
-                            <div className="profileStats">
+                            <div>
 
-                                <div>
+                                <h2>
 
-                                    <h3>3</h3>
+                                    Siddharth G
 
-                                    <span>Farms</span>
+                                </h2>
 
-                                </div>
+                                <span className="verified">
 
-                                <div>
+                                    <FaCheckCircle/>
 
-                                    <h3>8</h3>
+                                    Verified Farmer
 
-                                    <span>Crops</span>
-
-                                </div>
-
-                                <div>
-
-                                    <h3>5</h3>
-
-                                    <span>Documents</span>
-
-                                </div>
+                                </span>
 
                             </div>
 
-                            <button className="primaryBtn">
+                        </div>
 
-                                <Edit3 size={18}/>
+                        <div className="profileForm">
 
-                                Edit Profile
+                            <div className="inputGroup">
+
+                                <label>
+
+                                    Full Name
+
+                                </label>
+
+                                <input
+
+                                    defaultValue="Siddharth G"
+
+                                />
+
+                            </div>
+
+                            <div className="inputGroup">
+
+                                <label>
+
+                                    Mobile Number
+
+                                </label>
+
+                                <input
+
+                                    defaultValue="+91 9876543210"
+
+                                />
+
+                            </div>
+
+                            <div className="inputGroup">
+
+                                <label>
+
+                                    Email Address
+
+                                </label>
+
+                                <input
+
+                                    defaultValue="siddharth@email.com"
+
+                                />
+
+                            </div>
+
+                            <div className="inputGroup">
+
+                                <label>
+
+                                    District
+
+                                </label>
+
+                                <input
+
+                                    defaultValue="Coimbatore"
+
+                                />
+
+                            </div>
+
+                            <div className="inputGroup">
+
+                                <label>
+
+                                    State
+
+                                </label>
+
+                                <input
+
+                                    defaultValue="Tamil Nadu"
+
+                                />
+
+                            </div>
+
+                            <div className="inputGroup">
+
+                                <label>
+
+                                    Member Since
+
+                                </label>
+
+                                <input
+
+                                    defaultValue="June 2026"
+
+                                    disabled
+
+                                />
+
+                            </div>
+
+                            <button className="saveBtn">
+
+                                Save Changes
 
                             </button>
 
                         </div>
 
-                    </aside>
+                    </div>
 
-                    {/* RIGHT */}
+                    )
 
-                    <div className="profileContent">
+                }
+                                {/* =======================
+                    DOCUMENTS
+                ======================== */}
 
-                        {/* FARMS */}
+                {
 
-                        <section className="profileSection">
+                    activeTab==="documents" && (
 
-                            <div className="sectionHeader">
+                    <div className="contentCard">
 
-                                <h2>
+                        <div className="sectionHeader">
 
-                                    <Tractor/>
+                            <div>
 
-                                    Manage Farms
-
-                                </h2>
-
-                                <Link
-
-                                    to="/manage-farms"
-
-                                    className="sectionButton"
-
-                                >
-
-                                    Open Manager
-
-                                </Link>
-
-                            </div>
-
-                            <div className="farmGrid">
-
-                                {
-
-                                    farms.map(farm=>(
-
-                                        <div
-
-                                            className="farmCard"
-
-                                            key={farm.id}
-
-                                        >
-
-                                            <h3>{farm.name}</h3>
-
-                                            <p>
-
-                                                {farm.crop}
-
-                                            </p>
-
-                                            <span>
-
-                                                {farm.area}
-
-                                            </span>
-
-                                            <small>
-
-                                                {farm.soil}
-
-                                            </small>
-
-                                            <Link
-
-                                                to="/cropdetails"
-
-                                                className="viewBtn"
-
-                                            >
-
-                                                View
-
-                                                <ArrowRight size={16}/>
-
-                                            </Link>
-
-                                        </div>
-
-                                    ))
-
-                                }
-
-                            </div>
-
-                        </section>
-
-                        {/* DOCUMENTS */}
-
-                        <section className="profileSection">
-
-                            <div className="sectionHeader">
-
-                                <h2>
-
-                                    <FileText/>
+                                <h1>
 
                                     Documents
 
-                                </h2>
+                                </h1>
+
+                                <p>
+
+                                    Manage all your uploaded documents.
+
+                                </p>
 
                             </div>
 
-                            <div className="documentGrid">
+                            <button className="greenBtn">
 
-                                {
+                                <FaUpload/>
 
-                                    documents.map((doc,index)=>(
+                                Upload Document
 
-                                        <div
+                            </button>
 
-                                            className="documentCard"
+                        </div>
 
-                                            key={index}
+                        <div className="documentTable">
 
-                                        >
+                            <div className="documentHead">
 
-                                            <FileText/>
+                                <span>
 
-                                            <h3>
+                                    Document
 
-                                                {doc}
+                                </span>
 
-                                            </h3>
+                                <span>
+
+                                    Status
+
+                                </span>
+
+                                <span>
+
+                                    Uploaded
+
+                                </span>
+
+                            </div>
+
+                            {
+
+                                documents.map((doc,index)=>(
+
+                                    <div
+
+                                        key={index}
+
+                                        className="documentRow"
+
+                                    >
+
+                                        <div className="documentName">
+
+                                            <FaFileAlt/>
 
                                             <span>
 
-                                                Verified
+                                                {doc.name}
 
                                             </span>
 
-                                            <div className="documentActions">
-
-                                                <button>
-
-                                                    <Eye size={16}/>
-
-                                                </button>
-
-                                                <button>
-
-                                                    <Download size={16}/>
-
-                                                </button>
-
-                                                <button>
-
-                                                    <Upload size={16}/>
-
-                                                </button>
-
-                                            </div>
-
                                         </div>
 
-                                    ))
+                                        <span
 
-                                }
+                                            className={
 
-                            </div>
+                                                doc.status==="Verified"
 
-                            <button className="uploadButton">
+                                                ?
 
-                                <Upload size={18}/>
+                                                "status verified"
 
-                                Upload New Document
+                                                :
 
-                            </button>
-
-                        </section>
-                                                {/* PERSONAL INFORMATION */}
-
-                        <section className="profileSection">
-
-                            <div className="sectionHeader">
-
-                                <h2>
-
-                                    <User />
-
-                                    Personal Information
-
-                                </h2>
-
-                            </div>
-
-                            <form className="profileForm">
-
-                                <div className="formRow">
-
-                                    <div className="inputGroup">
-
-                                        <label>Full Name</label>
-
-                                        <input
-                                            type="text"
-                                            value={profile.name}
-                                            onChange={(e)=>
-                                                setProfile({
-                                                    ...profile,
-                                                    name:e.target.value
-                                                })
-                                            }
-                                        />
-
-                                    </div>
-
-                                    <div className="inputGroup">
-
-                                        <label>Email Address</label>
-
-                                        <input
-                                            type="email"
-                                            value={profile.email}
-                                            onChange={(e)=>
-                                                setProfile({
-                                                    ...profile,
-                                                    email:e.target.value
-                                                })
-                                            }
-                                        />
-
-                                    </div>
-
-                                </div>
-
-                                <div className="formRow">
-
-                                    <div className="inputGroup">
-
-                                        <label>Phone Number</label>
-
-                                        <input
-                                            type="text"
-                                            value={profile.phone}
-                                            onChange={(e)=>
-                                                setProfile({
-                                                    ...profile,
-                                                    phone:e.target.value
-                                                })
-                                            }
-                                        />
-
-                                    </div>
-
-                                    <div className="inputGroup">
-
-                                        <label>District</label>
-
-                                        <input
-                                            type="text"
-                                            value={profile.district}
-                                            onChange={(e)=>
-                                                setProfile({
-                                                    ...profile,
-                                                    district:e.target.value
-                                                })
-                                            }
-                                        />
-
-                                    </div>
-
-                                </div>
-
-                                <div className="formRow">
-
-                                    <div className="inputGroup fullWidth">
-
-                                        <label>State</label>
-
-                                        <input
-                                            type="text"
-                                            value={profile.state}
-                                            onChange={(e)=>
-                                                setProfile({
-                                                    ...profile,
-                                                    state:e.target.value
-                                                })
-                                            }
-                                        />
-
-                                    </div>
-
-                                </div>
-
-                                <button
-                                    type="button"
-                                    className="saveButton"
-                                >
-
-                                    <Save size={18}/>
-
-                                    Save Changes
-
-                                </button>
-
-                            </form>
-
-                        </section>
-
-                        {/* SECURITY */}
-
-                        <section className="profileSection">
-
-                            <div className="sectionHeader">
-
-                                <h2>
-
-                                    <Lock/>
-
-                                    Security
-
-                                </h2>
-
-                            </div>
-
-                            <form className="profileForm">
-
-                                <div className="inputGroup">
-
-                                    <label>
-
-                                        Current Password
-
-                                    </label>
-
-                                    <input
-                                        type="password"
-                                        value={password.current}
-                                        onChange={(e)=>
-
-                                            setPassword({
-
-                                                ...password,
-
-                                                current:e.target.value
-
-                                            })
-
-                                        }
-                                    />
-
-                                </div>
-
-                                <div className="formRow">
-
-                                    <div className="inputGroup">
-
-                                        <label>
-
-                                            New Password
-
-                                        </label>
-
-                                        <input
-                                            type="password"
-                                            value={password.newPassword}
-                                            onChange={(e)=>
-
-                                                setPassword({
-
-                                                    ...password,
-
-                                                    newPassword:e.target.value
-
-                                                })
+                                                "status pending"
 
                                             }
-                                        />
+
+                                        >
+
+                                            {doc.status}
+
+                                        </span>
+
+                                        <span>
+
+                                            {doc.uploaded}
+
+                                        </span>
 
                                     </div>
 
-                                    <div className="inputGroup">
+                                ))
 
-                                        <label>
+                            }
 
-                                            Confirm Password
-
-                                        </label>
-
-                                        <input
-                                            type="password"
-                                            value={password.confirmPassword}
-                                            onChange={(e)=>
-
-                                                setPassword({
-
-                                                    ...password,
-
-                                                    confirmPassword:e.target.value
-
-                                                })
-
-                                            }
-                                        />
-
-                                    </div>
-
-                                </div>
-
-                                <button
-                                    type="button"
-                                    className="saveButton"
-                                >
-
-                                    <Lock size={18}/>
-
-                                    Update Password
-
-                                </button>
-
-                            </form>
-
-                        </section>
-
-                        {/* ACCOUNT SETTINGS */}
-
-                        <section className="profileSection">
-
-                            <div className="sectionHeader">
-
-                                <h2>
-
-                                    <Bell/>
-
-                                    Preferences
-
-                                </h2>
-
-                            </div>
-
-                            <div className="settingsGrid">
-
-                                <div className="settingCard">
-
-                                    <Bell size={22}/>
-
-                                    <div>
-
-                                        <h3>
-
-                                            Notifications
-
-                                        </h3>
-
-                                        <p>
-
-                                            Manage app notifications
-
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-                                <div className="settingCard">
-
-                                    <Globe size={22}/>
-
-                                    <div>
-
-                                        <h3>
-
-                                            Language
-
-                                        </h3>
-
-                                        <p>
-
-                                            English
-
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </section>
-
-                        {/* LOGOUT */}
-
-                        <section className="logoutSection">
-
-                            <button className="logoutButton">
-
-                                <LogOut size={18}/>
-
-                                Logout
-
-                            </button>
-
-                        </section>
+                        </div>
 
                     </div>
+
+                    )
+
+                }
+
+                {/* =======================
+                    SECURITY
+                ======================== */}
+
+                {
+
+                    activeTab==="security" && (
+
+                    <div className="contentCard">
+
+                        <h1>
+
+                            Security
+
+                        </h1>
+
+                        <p>
+
+                            Update your account password.
+
+                        </p>
+
+                        <div className="profileForm">
+
+                            <div className="inputGroup">
+
+                                <label>
+
+                                    Current Password
+
+                                </label>
+
+                                <input
+
+                                    type="password"
+
+                                    placeholder="********"
+
+                                />
+
+                            </div>
+
+                            <div className="inputGroup">
+
+                                <label>
+
+                                    New Password
+
+                                </label>
+
+                                <input
+
+                                    type="password"
+
+                                    placeholder="********"
+
+                                />
+
+                            </div>
+
+                            <div className="inputGroup">
+
+                                <label>
+
+                                    Confirm Password
+
+                                </label>
+
+                                <input
+
+                                    type="password"
+
+                                    placeholder="********"
+
+                                />
+
+                            </div>
+
+                            <button className="saveBtn">
+
+                                Save Password
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    )
+
+                }
+
+                {/* =======================
+                    NOTIFICATIONS
+                ======================== */}
+
+                {
+
+                    activeTab==="notifications" && (
+
+                    <div className="contentCard">
+
+                        <h1>
+
+                            Notification Preferences
+
+                        </h1>
+
+                        <p>
+
+                            Choose the notifications you want to receive.
+
+                        </p>
+
+                        <div className="toggleList">
+
+                            <label>
+
+                                Weather Alerts
+
+                                <input
+
+                                    type="checkbox"
+
+                                    defaultChecked
+
+                                />
+
+                            </label>
+
+                            <label>
+
+                                Crop Disease Alerts
+
+                                <input
+
+                                    type="checkbox"
+
+                                    defaultChecked
+
+                                />
+
+                            </label>
+
+                            <label>
+
+                                Government Scheme Updates
+
+                                <input
+
+                                    type="checkbox"
+
+                                    defaultChecked
+
+                                />
+
+                            </label>
+
+                            <label>
+
+                                SMS Notifications
+
+                                <input
+
+                                    type="checkbox"
+
+                                />
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    )
+
+                }
+
+                {/* =======================
+                    LANGUAGE
+                ======================== */}
+
+                {
+
+                    activeTab==="language" && (
+
+                    <div className="contentCard">
+
+                        <h1>
+
+                            Language
+
+                        </h1>
+
+                        <p>
+
+                            Select your preferred language.
+
+                        </p>
+
+                        <div className="languageGrid">
+
+                            <button>
+
+                                English
+
+                            </button>
+
+                            <button>
+
+                                தமிழ்
+
+                            </button>
+
+                            <button>
+
+                                తెలుగు
+
+                            </button>
+
+                            <button>
+
+                                हिन्दी
+
+                            </button>
+
+                            <button>
+
+                                ಕನ್ನಡ
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    )
+
+                }
 
                 </div>
 
             </div>
 
-            <Footer/>
+        </div>
 
-        </>
+        <Footer/>
+
+    </>
 
     );
 
-}
+};
 
 export default Profile;

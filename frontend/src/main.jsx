@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import './index.css'
 import App from './App.jsx'
 import "./sankari.css";
-
+import "leaflet/dist/leaflet.css";
+import "leaflet-draw/dist/leaflet.draw.css";
 // Clean and simple UI-only state to support frontend layout prototyping
 const initialAgriState = {
   user: {
