@@ -11,7 +11,9 @@ import Profile from "./pages/Profile";
 import Chatbot from "./pages/Chatbot";
 import Weather from "./pages/Weather";
 import Schemes from "./pages/Schemes";
-
+import Farms from "./pages/Farms";
+import AddFarm from "./pages/AddFarm";
+import FarmDetails from "./pages/FarmDetails";
 // Authentication Pages
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -37,6 +39,12 @@ function App() {
       <Route path="/crops/add" element={<AddCrop />} />
 
       <Route path="/crops/:id" element={<CropDetails />} />
+
+      <Route path="/farm-management" element={<Farms />} />
+
+      <Route path="/farm-management/add" element={<AddFarm />}/>
+
+      <Route path="/farm-management/:id" element={<FarmDetails />}/>
 
       <Route path="/profile" element={<Profile />} />
 
