@@ -153,7 +153,7 @@ backgroundImage:`url(${current.image})`
                 <h5 className="weather-day">
                 {current.day.toUpperCase()}
                 </h5>   
-                <h1 className="weather-temp">
+                <h1 style={{color:"#ffffff"}}className="weather-temp">
                 {current.temp}
                 </h1>
             <div className="weather-condition">
