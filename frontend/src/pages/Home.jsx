@@ -51,8 +51,8 @@ const Home = () => {
         <div className="overlay">
             <div className="heroContent">
 
-                <h1>Smart Agriculture for a Smarter Future</h1>
-                <p> Empowering farmers with AI, Weather Intelligence, Government Schemes and Crop Management. </p>
+                <h1 style={{color: "#b6b6b6ff"}}>Smart Agriculture for a Smarter Future</h1>
+                <p style={{color: "#838383ff"}}> Empowering farmers with AI, Weather Intelligence, Government Schemes and Crop Management. </p>
                 
                 <Link to="/login">
                     <button className="heroButton"> Get Started </button>

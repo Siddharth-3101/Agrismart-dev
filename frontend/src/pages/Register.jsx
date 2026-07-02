@@ -105,19 +105,15 @@ function Register() {
                 </span>
             </div>
 
-            {/* Role */}
-            <div className="input-box">
-              <select name="role" value={formData.role} onChange={handleChange} required >
-                <option value="">Platform Role</option>
-                <option value="Farmer">Farmer</option>
-                <option value="Agriculture Officer"> Agriculture Officer </option>
-              </select>
-            </div>
-
             {/* State */}
             <div className="input-box">
               <FaMapMarkerAlt className="input-icon" />
                 <input type="text" placeholder="State" name="state" value={formData.state} onChange={handleChange} required />
+            </div>
+
+            <div className="input-box">
+              <FaMapMarkerAlt className="input-icon" />
+                <input type="text" placeholder="PinCode" name="pincode" value={formData.state} onChange={handleChange} required />
             </div>
 
             {/* District */}
