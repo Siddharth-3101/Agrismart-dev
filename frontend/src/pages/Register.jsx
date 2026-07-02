@@ -87,7 +87,7 @@ function Register() {
         </div>
 
         <form onSubmit={handleRegister}>
-
+            <div className="register-grid">
           {/* Full Name */}
 
           <div className="input-box">
@@ -222,7 +222,7 @@ function Register() {
               required
             />
           </div>
-
+          </div>
           {/* Register Button */}
 
           <button className="login-btn">

@@ -32,41 +32,44 @@ function CropDetails() {
 
         {/* Header */}
 
-        <div className="detailsHeader">
+<div className="detailsHeader">
 
-          <button
-            className="backBtn"
-            onClick={() => navigate("/crops")}
-          >
-            <ArrowLeft size={18}/>
-            Back
-          </button>
+    <button
+        className="backBtn"
+        onClick={() => navigate("/crops")}
+    >
+        <ArrowLeft size={18} />
+        Back
+    </button>
 
-          <div className="cropHero">
+</div>
 
-            <img
-              src="https://images.pexels.com/photos/236474/pexels-photo-236474.jpeg"
-              alt="Rice"
-              className="heroImage"
-            />
+{/* Hero */}
 
-            <div className="heroContent">
+<div className="cropDetailsHero">
 
-              <span className="heroBadge">
-                Healthy
-              </span>
+    <img
+        src="https://images.pexels.com/photos/236474/pexels-photo-236474.jpeg"
+        alt="Rice"
+        className="heroImage"
+    />
 
-              <h1>Rice</h1>
+    <div className="heroContent">
 
-              <p>
-                Green Valley Farm • Flowering Stage
-              </p>
+        <span className="heroBadge">
+            Healthy
+        </span>
 
-            </div>
+        <h1>Rice</h1>
 
-          </div>
+        <p>
+            Green Valley Farm • Flowering Stage
+        </p>
 
-        </div>
+    </div>
+
+</div>
+<br></br>
 
         {/* Summary */}
 

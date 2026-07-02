@@ -4,13 +4,61 @@
 
 .cropPage {
     min-height: 100vh;
-    padding: 120px 7% 70px;
+    background: #ffffff;
+}
+
+.cropHero{
+
     background:
-        linear-gradient(rgba(255, 255, 255, .75), rgba(255, 255, 255, .75)),
-        url("https://images.pexels.com/photos/8289991/pexels-photo-8289991.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+        linear-gradient(to bottom,
+            rgba(255,255,255,.45) 10%,
+            rgba(255,255,255,.55) 80%,
+            rgba(247,250,247,.90) 100%
+        ),
+        url("C:\Users\siddh\Music\AgriSmart-dev\frontend\src\assets\crophero.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    padding:140px 7% 70px;
+    position:relative;
+
+    overflow:hidden;
+
+}
+.cropHero::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:40px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(247,250,247,0),
+        rgba(247,250,247,1)
+    );
+
+}
+
+.cropContent{
+
+    position:relative;
+
+    padding:60px 7% 80px;
+
+    background:#ffffffdb;
+
+    border-radius:35px 35px 0 0;
+
+    z-index:2;
+
 }
 
 /* ===================================================
@@ -21,13 +69,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 .cropHeader h1 {
     font-size: 48px;
     color: #1b5e20;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-weight: 700;
 }
 
@@ -36,6 +84,83 @@
     color: #555;
     max-width: 700px;
     line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* ==========================================
+   SUMMARY STRIP
+========================================== */
+
+.summaryCard {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 28px 40px;
+
+    margin-top: -55px;
+
+    margin-bottom: 30px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+}
+
+.summaryItem {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex: 1;
+
+}
+
+.summaryItem svg {
+
+    color: #2E7D32;
+
+}
+
+.summaryItem span {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+.summaryItem h3 {
+
+    margin-top: 4px;
+
+    color: #114b1d;
+
+    font-size: 30px;
+
+}
+
+.summaryDivider {
+
+    width: 1px;
+
+    height: 65px;
+
+    background: #ececec;
+
 }
 
 /* ===================================================
@@ -86,13 +211,12 @@
 
     display: flex;
     align-items: center;
-    width: 80%;
-    max-width: 950px;
-    gap: 15px;
+    width: 100%;
+    gap: 25px;
     height: 65px;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
 
-    background: rgba(255, 255, 255, .22);
+    background: white;
 
     backdrop-filter: blur(18px);
 
@@ -104,7 +228,7 @@
 
     padding: 18px 25px;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
 
 }
 
@@ -136,103 +260,14 @@
 
 }
 
-/* ===================================================
-   OVERVIEW GRID
-=================================================== */
-
-.overviewGrid {
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 25px;
-
-    margin-bottom: 60px;
-
-}
-
-/* ===================================================
-   OVERVIEW CARD
-=================================================== */
-
-.overviewCard {
-
-    background: rgba(255, 255, 255, .18);
-
-    backdrop-filter: blur(20px);
-
-    -webkit-backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255, 255, 255, .35);
-
-    border-radius: 28px;
-
-    padding: 28px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    transition: .35s;
-
-    box-shadow: 0 12px 35px rgba(0, 0, 0, .08);
-
-}
-
-.overviewCard:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow: 0 20px 45px rgba(0, 0, 0, .15);
-
-}
-
-.overviewCard svg {
-
-    width: 32px;
-
-    height: 32px;
-
-    color: #2E7D32;
-
-    margin-bottom: 14px;
-
-}
-
-.overviewCard h2 {
-
-    font-size: 28px;
-
-    color: #114b1d;
-
-    margin-bottom: 8px;
-
-}
-
-.overviewCard p {
-
-    font-size: 16px;
-
-    color: #666;
-
-    font-weight: 500;
-
-}
 
 /* ===================================================
    SECTION TITLES
 =================================================== */
 
 .sectionTitle {
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 
 }
 
@@ -365,7 +400,7 @@
 
     align-items: flex-start;
 
-    margin-bottom: 28px;
+    margin-bottom: 0px;
 
 }
 
@@ -390,40 +425,47 @@
 /* ===================================================
    STATUS BADGES
 =================================================== */
+.cropStatus{
 
-.status {
+    display:inline-flex;
 
-    padding: 8px 18px;
+    align-items:center;
 
-    border-radius: 40px;
+    justify-content:center;
 
-    font-size: 14px;
+    padding:8px 18px;
 
-    font-weight: 600;
+    border-radius:40px;
 
-}
+    font-size:14px;
 
-.status.healthy {
+    font-weight:600;
 
-    background: #d8f8dd;
-
-    color: #2E7D32;
-
-}
-
-.status.growing {
-
-    background: #fff1cb;
-
-    color: #ef6c00;
+    white-space:nowrap;
 
 }
 
-.status.attention {
+.cropStatus.healthy{
 
-    background: #ffe1e1;
+    background:#D8F8DD;
 
-    color: #d32f2f;
+    color:#2E7D32;
+
+}
+
+.cropStatus.growing{
+
+    background:#FFF1CB;
+
+    color:#EF6C00;
+
+}
+
+.cropStatus.attention{
+
+    background:#FFE1E1;
+
+    color:#D32F2F;
 
 }
 
@@ -433,7 +475,7 @@
 
 .progressSection {
 
-    margin-bottom: 28px;
+    margin-bottom: 0px;
 
 }
 
@@ -487,13 +529,13 @@
 
 .cropInfo {
 
-    display: grid;
+    display: flex;
 
-    grid-template-columns: repeat(2, 1fr);
+        flex-direction:column;
 
-    gap: 18px;
+    gap: 12px;
 
-    margin-bottom: 28px;
+    margin-bottom: 0px;
 
 }
 
@@ -627,176 +669,6 @@
 
 }
 
-/* ===================================================
-   AI RECOMMENDATIONS
-=================================================== */
-
-.aiSection {
-    margin-bottom: 70px;
-}
-
-.aiCard {
-    background: rgba(255, 255, 255, .18);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255, 255, 255, .35);
-    border-radius: 30px;
-
-    padding: 35px;
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
-}
-
-.aiCard ul {
-    list-style: none;
-}
-
-.aiCard li {
-
-    position: relative;
-
-    padding: 18px 18px 18px 55px;
-
-    margin-bottom: 18px;
-
-    border-radius: 18px;
-
-    background: rgba(76, 175, 80, .08);
-
-    transition: .3s;
-
-    color: #444;
-
-    line-height: 1.7;
-
-    font-size: 16px;
-
-}
-
-.aiCard li:last-child {
-    margin-bottom: 0;
-}
-
-.aiCard li::before {
-
-    content: "✓";
-
-    position: absolute;
-
-    left: 20px;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 24px;
-
-    height: 24px;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background: #4CAF50;
-
-    color: white;
-
-    font-weight: bold;
-
-    font-size: 14px;
-
-}
-
-.aiCard li:hover {
-
-    transform: translateX(8px);
-
-    background: rgba(76, 175, 80, .15);
-
-}
-
-/* ===================================================
-   ACTIVITY
-=================================================== */
-
-.activitySection {
-
-    margin-bottom: 80px;
-
-}
-
-.activityCard {
-
-    background: rgba(255, 255, 255, .18);
-
-    backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255, 255, 255, .35);
-
-    border-radius: 30px;
-
-    padding: 35px;
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
-
-}
-
-.activityItem {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    padding: 20px;
-
-    border-radius: 18px;
-
-    margin-bottom: 18px;
-
-    transition: .3s;
-
-    background: rgba(255, 255, 255, .18);
-
-}
-
-.activityItem:last-child {
-
-    margin-bottom: 0;
-
-}
-
-.activityItem:hover {
-
-    transform: translateX(10px);
-
-    background: rgba(76, 175, 80, .10);
-
-}
-
-.activityItem svg {
-
-    color: #2E7D32;
-
-    min-width: 24px;
-
-}
-
-.activityItem span {
-
-    color: #444;
-
-    font-size: 16px;
-
-    font-weight: 500;
-
-}
 
 /* ===================================================
    SCROLLBAR
@@ -1499,12 +1371,12 @@
     margin-bottom: 40px;
 }
 
-.cropHero {
+.cropDetailsHero {
     display: flex;
     align-items: center;
     gap: 35px;
 
-    margin-top: 25px;
+    margin-top: 5px;
 
     background: rgba(255, 255, 255, .18);
 
@@ -2167,25 +2039,25 @@
    CHAT CONTAINER
 =================================================== */
 
-.chatContainer{
+.chatContainer {
 
-    display:flex;
+    display: flex;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    height:650px;
+    height: 650px;
 
-    background:rgba(255,255,255,.45);
+    background: rgba(255, 255, 255, .45);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter: blur(18px);
 
-    border:1px solid rgba(255,255,255,.35);
+    border: 1px solid rgba(255, 255, 255, .35);
 
-    border-radius:30px;
+    border-radius: 30px;
 
-    overflow:hidden;
+    overflow: hidden;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
 
 }
 
@@ -2193,69 +2065,77 @@
    MESSAGE
 =========================== */
 
-.message {
+.messages{
 
-    display: flex;
+    flex:1;
 
-    gap: 18px;
+    overflow-y:auto;
 
-    align-items: flex-start;
+    padding:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
 
 }
 /* ===========================
    MESSAGE BUBBLE
 =========================== */
 
-.messageBubble{
+.messageBubble {
 
-    padding:16px 22px;
+    padding: 16px 22px;
 
-    border-radius:18px;
+    border-radius: 18px;
 
-    line-height:1.7;
+    line-height: 1.7;
 
-    font-size:15px;
+    font-size: 15px;
 
-    max-width:70%;
+    max-width: 70%;
 
-    word-wrap:break-word;
+    word-wrap: break-word;
 
 }
+
 /* ===========================
    BOT MESSAGE
 =========================== */
-.botMessage{
+.botMessage {
 
-    display:flex;
+    display: flex;
 
-    justify-content:flex-start;
+    justify-content: flex-start;
 
-    align-items:center;
+    align-items: center;
 
-    gap:14px;
-
-}
-.botMessage .messageBubble{
-
-    background:white;
-
-    color:#333;
-
-    border-top-left-radius:6px;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    gap: 14px;
 
 }
 
-.botMessage .messageBubble{
+.botMessage .messageBubble {
 
-    background:white;
+    background: white;
 
-    color:#333;
+    color: #333;
 
-    border-top-left-radius:6px;
+    border-top-left-radius: 6px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+
+}
+
+.botMessage .messageBubble {
+
+    background: white;
+
+    color: #333;
+
+    border-top-left-radius: 6px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .05);
 
 }
 
@@ -2263,15 +2143,15 @@
    USER MESSAGE
 =========================== */
 
-.userMessage{
+.userMessage {
 
-    display:flex;
+    display: flex;
 
-    justify-content:flex-end;
+    justify-content: flex-end;
 
-    align-items:center;
+    align-items: center;
 
-    gap:14px;
+    gap: 14px;
 
 }
 
@@ -2297,15 +2177,15 @@
 
 }
 
-.userMessage .messageBubble{
+.userMessage .messageBubble {
 
-    background:#43A047;
+    background: #43A047;
 
-    color:white;
+    color: white;
 
-    border-top-right-radius:6px;
+    border-top-right-radius: 6px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
 
 }
 
@@ -2343,19 +2223,19 @@
    CHAT INPUT
 =========================== */
 
-.chatInputContainer{
+.chatInputContainer {
 
-    display:flex;
+    display: flex;
 
-    align-items:center;
+    align-items: center;
 
-    gap:15px;
+    gap: 15px;
 
-    padding:20px 25px;
+    padding: 20px 25px;
 
-    border-top:1px solid rgba(0,0,0,.08);
+    border-top: 1px solid rgba(0, 0, 0, .08);
 
-    background:white;
+    background: white;
 
 }
 
@@ -2438,18 +2318,888 @@
     background: #43A047;
 
 }
-.messages{
 
-    flex:1;
+.messages {
 
-    overflow-y:auto;
+    flex: 1;
 
-    padding:35px;
+    overflow-y: auto;
+
+    padding: 35px;
+
+    display: flex;
+
+    gap: 18px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   PROFILE PAGE
+=================================================== */
+
+.profilePage{
+    
+    min-height:100vh;
+    
+
+    background:#F7FAF7;
+
+    padding:120px 6% 80px;
+
+}
+
+/* ===================================================
+   SETTINGS LAYOUT
+=================================================== */
+
+.settingsContainer{
+
+    display:grid;
+
+    grid-template-columns:420px minmax(0,1fr);
+
+    gap:36px;
+
+    align-items: start;
+
+}
+
+/* ===================================================
+   SIDEBAR
+=================================================== */
+
+.settingsSidebar{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:40px 30px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+
+    position:sticky;
+
+    top:110px;
+    min-height: 600px;
+
+}
+
+.settingsSidebar h2{
+
+    font-size:34px;
+
+    color:#1B5E20;
+
+    margin-bottom:28px;
+
+    font-weight:700;
+
+}
+
+/* ===================================================
+   SIDEBAR BUTTONS
+=================================================== */
+
+.settingsSidebar button{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    border:none;
+
+    background:none;
+
+    border-radius:14px;
+
+    padding:12px 16px;
+
+    margin-bottom:8px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    color:#555;
+
+    transition:.25s;
+
+}
+
+.settingsSidebar button svg{
+
+    font-size:18px;
+
+}
+
+.settingsSidebar button:hover{
+
+    background:#F1F8F1;
+
+    color:#2E7D32;
+
+}
+
+.activeTab{
+
+    background:#E8F5E9 !important;
+
+    color:#2E7D32 !important;
+
+    font-weight:600 !important;
+
+}
+
+.logoutSide{
+
+    margin-top:35px;
+
+    color:#D32F2F !important;
+
+}
+
+.logoutSide:hover{
+
+    background:#FFECEC !important;
+
+}
+
+/* ===================================================
+   RIGHT CONTENT
+=================================================== */
+
+.settingsContent{
+
+    display:flex;
+
+    flex-direction:column;
+    width:100%;
+    gap:30px;
+
+}
+
+.contentCard{
+
+    background:rgb(255, 255, 255);
+
+    border-radius:24px;
+    width:100%;
+
+    padding:48px;
+    
+
+    box-shadow:0 12px 35px rgba(0,0,0,.05);
+
+}
+
+.contentCard h1{
+
+    font-size:42px;
+
+    color:#1B5E20;
+
+    margin-bottom:8px;
+
+}
+
+.contentCard>p{
+
+    color:#666;
+
+    margin-bottom:30px;
+
+    font-size:17px;
+
+    line-height:1.6;
+
+}
+
+/* ===================================================
+   PROFILE HEADER
+=================================================== */
+
+.profileTop{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+    margin-bottom:40px;
+
+}
+
+.avatar{
+
+    width:95px;
+
+    height:95px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+.profileTop h2{
+
+    font-size:30px;
+
+    color:#1B5E20;
+
+    margin-bottom:10px;
+
+}
+
+.verified{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+/* ===================================================
+   PROFILE FORM
+=================================================== */
+
+.profileForm{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.inputGroup{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.inputGroup label{
+
+    font-size:14px;
+
+    color:#666;
+
+    font-weight:600;
+
+}
+
+.inputGroup input{
+
+    padding:14px 18px;
+
+    border:1px solid #DCE5DC;
+
+    border-radius:14px;
+
+    background:#FAFCFA;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.inputGroup input:focus{
+
+    outline:none;
+
+    border-color:#43A047;
+
+    box-shadow:0 0 0 4px rgba(67,160,71,.12);
+
+}
+
+.inputGroup input:disabled{
+
+    background:#F2F4F2;
+
+    color:#888;
+
+    cursor:not-allowed;
+
+}
+
+.saveBtn{
+
+    width:220px;
+
+    margin-top:10px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.saveBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
+/* ===================================================
+   SECTION HEADER
+=================================================== */
+
+.sectionHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:28px;
+
+}
+
+.greenBtn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:14px 24px;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.greenBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
+/* ===================================================
+   DOCUMENT TABLE
+=================================================== */
+
+.documentTable{
+
+    width:100%;
+
+}
+
+.documentHead{
+
+    display:grid;
+
+    grid-template-columns:2.8fr 1.2fr 1.2fr 170px;
+
+    padding:16px 24px;
+
+    background:#F5F8F5;
+
+    border-radius:16px;
+
+    font-weight:600;
+
+    color:#555;
+
+    margin-bottom:12px;
+
+}
+
+.documentRow{
+
+    display:grid;
+
+    grid-template-columns:2.8fr 1.2fr 1.2fr 170px;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+    border:1px solid #ECECEC;
+
+    border-radius:16px;
+
+    margin-bottom:14px;
+
+    transition:.25s;
+
+}
+
+.documentRow:hover{
+
+    border-color:#43A047;
+
+    box-shadow:0 8px 22px rgba(0,0,0,.05);
+
+}
+
+.documentName{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#1B5E20;
+
+}
+
+.documentName svg{
+
+    color:#2E7D32;
+
+    font-size:22px;
+
+}
+/* ===================================================
+   DOCUMENT STATUS
+=================================================== */
+
+.status{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:max-content;
+
+    padding:7px 16px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.status.verified{
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+}
+
+.status.pending{
+
+    background:#FFF8E1;
+
+    color:#F9A825;
+
+}
+
+.status.rejected{
+
+    background:#FFEBEE;
+
+    color:#D32F2F;
+
+}
+
+/* ===================================================
+   DOCUMENT ACTIONS
+=================================================== */
+
+.documentActions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+}
+
+.documentActions button{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#EEF6EE;
+
+    color:#2E7D32;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.documentActions button:hover{
+
+    background:#2E7D32;
+
+    color:white;
+
+}
+
+/* ===================================================
+   TOGGLES
+=================================================== */
+
+.toggleList{
 
     display:flex;
 
     flex-direction:column;
 
     gap:18px;
+
+}
+
+.toggleList label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 22px;
+
+    border:1px solid #E6ECE6;
+
+    border-radius:16px;
+
+    background:#FAFCFA;
+
+    font-size:16px;
+
+    font-weight:500;
+
+}
+
+.toggleList input{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:#2E7D32;
+
+}
+
+/* ===================================================
+   LANGUAGE
+=================================================== */
+
+.languageGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+
+    gap:18px;
+
+}
+
+.languageGrid button{
+
+    border:1px solid #E1E6E1;
+
+    border-radius:16px;
+
+    background:white;
+
+    padding:18px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.languageGrid button:hover{
+
+    background:#2E7D32;
+
+    color:white;
+
+    border-color:#2E7D32;
+
+}
+
+/* ===================================================
+   CARD HOVER
+=================================================== */
+
+.contentCard{
+
+    transition:.3s;
+
+}
+
+.contentCard:hover{
+
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+@media(max-width:1100px){
+
+    .settingsContainer{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .settingsSidebar{
+
+        position:relative;
+
+        top:0;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .documentHead{
+
+        display:none;
+
+    }
+
+    .documentRow{
+
+        grid-template-columns:1fr;
+
+        gap:16px;
+
+        padding:20px;
+
+    }
+
+    .documentActions{
+
+        justify-content:flex-start;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .profileForm{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .sectionHeader{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+    .profileTop{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .saveBtn{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .profilePage{
+
+        padding:110px 5% 60px;
+
+    }
+
+    .contentCard{
+
+        padding:24px;
+
+    }
+
+    .contentCard h1{
+
+        font-size:32px;
+
+    }
+
+    .settingsSidebar{
+
+        padding:20px;
+
+    }
+
+    .settingsSidebar h2{
+
+        font-size:28px;
+
+    }
 
 }
