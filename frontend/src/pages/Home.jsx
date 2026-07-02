@@ -55,7 +55,7 @@ const Home = () => {
                 <p> Empowering farmers with AI, Weather Intelligence, Government Schemes and Crop Management. </p>
                 
                 <Link to="/login">
-                <button className="heroButton"> Get Started </button>
+                    <button className="heroButton"> Get Started </button>
                 </Link>
 
             </div>
