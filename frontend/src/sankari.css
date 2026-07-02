@@ -1691,6 +1691,7 @@ AI CHATBOT
     display:flex;
     align-items:center;
     gap:8px;
+    white-space: nowrap;
 }
 .login-options input{
     accent-color:#43a047;

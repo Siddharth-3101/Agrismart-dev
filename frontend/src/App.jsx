@@ -48,12 +48,6 @@ function App() {
       <Route path="/crops/:id" element={<CropDetails />} />
         <Route path="/officer/oweather" element={<OWeather />} />
 
-      <Route path="/farm-management" element={<Farms />} />
-
-      <Route path="/farm-management/add" element={<AddFarm />}/>
-
-      <Route path="/farm-management/:id" element={<FarmDetails />}/>
-
       <Route path="/profile" element={<Profile />} />
 
       <Route path="/chatbot" element={<Chatbot />} />

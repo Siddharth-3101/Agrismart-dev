@@ -10,22 +10,9 @@ import sunrise from "../assets/weather/sunrise.jpg";
 import mist from "../assets/weather/harvest.jpg";
 import night from "../assets/weather/night.jpg";
 
-import {
-WiDaySunny,
-WiCloud,
-WiRain,
-WiThunderstorm,
-WiSunrise,
-WiFog,
-WiNightClear
-} from "react-icons/wi";
+import {WiDaySunny, WiCloud, WiRain, WiThunderstorm, WiSunrise, WiFog, WiNightClear } from "react-icons/wi";
 
-import {
-FaMapMarkerAlt,
-FaTemperatureHigh,
-FaTint,
-FaWind
-} from "react-icons/fa";
+import { FaMapMarkerAlt, FaTemperatureHigh, FaTint, FaWind } from "react-icons/fa";
 
 const Weather = () => {
 
@@ -139,146 +126,119 @@ return(
 
 <>
 
-<Navbar/>
+    <Navbar/>
 
-<div
-className="weather-v2"
-style={{
-backgroundImage:`url(${current.image})`
-}}
->
-    <div className="weather-dark-layer">
-        <div className="weather-content">
-            <div className="weather-left">
-                <h5 className="weather-day">
-                {current.day.toUpperCase()}
-                </h5>   
-                <h1 className="weather-temp">
-                {current.temp}
-                </h1>
-            <div className="weather-condition">
-                <div className="condition-icon"> {current.icon}
-                </div>
-                <span> {current.condition} </span>
-            </div>
-            <div className="weather-location">
-                <FaMapMarkerAlt/>
-                    <p>
-                    {current.city}, {current.country}
-                    </p>
-            </div>
-            <div className="weather-small-boxes">
-                <div className="small-box">
-                    <FaTemperatureHigh/>
-                        <h4>Feels Like</h4>
-                        <p>{current.feels}</p>
-                </div>
-                <div className="small-box">
-                    <FaTint/>
-                        <h4>Humidity</h4>
-                        <p>{current.humidity}</p>
-                </div>
-                <div className="small-box">
-                    <FaWind/>
-                        <h4>Wind</h4>
-                        <p>{current.wind}</p>
-                </div>
-            </div>
-        </div>
-        <div className="weather-right">
-            <div className="weather-right-panel">
-                
-               <div className="weather-card-stack">
-                    {weatherData.map((item,index)=>{
+    <div className="weather-v2" style={{ backgroundImage:`url(${current.image})` }}>
+        <div className="weather-dark-layer">
+            <div className="weather-content">
+                <div className="weather-left">
+                    <h5 className="weather-day"> {current.day.toUpperCase()} </h5>   
+                    <h1 className="weather-temp"> {current.temp} </h1>
 
-                    const position=(index-active+weatherData.length)%weatherData.length;
-                    
-                    if(position>3) return null;
-                    return(
-
-                    <div
-                    key={item.id}
-                    className={`weather-preview-card ${position===0 ? "active-preview" : ""}`}
-                    onClick={()=>setActive(index)}
-                    style={{
-                    left:`${position*95}px`,
-                    top:`${position*18}px`,
-                    zIndex:20-position,
-                    backgroundImage:`url(${item.image})`
-                    }}
-                    >
-
-                        <div className="preview-overlay">
-                            <div className="preview-top">
-
-                                <h2>
-                                {item.day}
-                                </h2>
-                            </div>
-
-                            <div className="preview-middle">
-                                <div className="preview-icon">
-                                    {item.icon}
-
-                                </div>
-
-                            </div>
-                            <div className="preview-bottom">
-                                <h3>
-                                {item.temp}
-                                </h3>
-                                <p>
-                                {item.condition}
-                                </p>
-                            </div>
-
-                        </div>
+                    <div className="weather-condition">
+                        <div className="condition-icon"> {current.icon} </div>
+                        <span> {current.condition} </span>
                     </div>
 
-                    );
-                    })}
+                    <div className="weather-location">
+                        <FaMapMarkerAlt/>
+                        <p> {current.city}, {current.country} </p>
+                    </div>
+
+                    <div className="weather-small-boxes">
+                        <div className="small-box">
+                            <FaTemperatureHigh/>
+                            <h4>Feels Like</h4>
+                            <p>{current.feels}</p>
+                        </div>
+
+                        <div className="small-box">
+                            <FaTint/>
+                            <h4>Humidity</h4>
+                            <p>{current.humidity}</p>
+                        </div>
+
+                        <div className="small-box">
+                            <FaWind/>
+                            <h4>Wind</h4>
+                            <p>{current.wind}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div className="weather-floating-panel">
-            <div className="floating-item">
-                <span>Pressure</span>
-                <h3>1008 hPa</h3>
-            </div>
+
+                <div className="weather-right">
+                    <div className="weather-right-panel">
+                        <div className="weather-card-stack">
+                            {weatherData.map((item,index)=>{
+
+                            const position=(index-active+weatherData.length)%weatherData.length;
+                    
+                            if(position>3) return null;
+                            return(
+
+                                <div key={item.id} className={`weather-preview-card ${position===0 ? "active-preview" : ""}`} onClick={()=>setActive(index)}
+                                        style={{ left:`${position*95}px`, top:`${position*18}px`, zIndex:20-position, backgroundImage:`url(${item.image})` }} >
+
+                                    <div className="preview-overlay">
+                                        <div className="preview-top">
+                                            <h2> {item.day} </h2>
+                                        </div>
+
+                                        <div className="preview-middle">
+                                            <div className="preview-icon"> {item.icon} </div>
+                                        </div>
+
+                                        <div className="preview-bottom">
+                                            <h3> {item.temp} </h3>
+                                            <p> {item.condition} </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            );
+                            })}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="weather-floating-panel">
+                    <div className="floating-item">
+                        <span>Pressure</span>
+                        <h3>1008 hPa</h3>
+                    </div>
+
                     <div className="floating-item">
                         <span>Visibility</span>
                         <h3>8 km</h3>
                     </div>
+
                     <div className="floating-item">
                         <span>UV Index</span>
                         <h3>5</h3>
                     </div>
+
                     <div className="floating-item">
                         <span>Rain Chance</span>
                         <h3>18%</h3>
                     </div>
                 </div>
+
                 <div className="weather-page-number">
-                    <span>
-                        {String(current.id).padStart(2,"0")}
-                    </span>
+                    <span> {String(current.id).padStart(2,"0")} </span>
                     <div className="page-line"></div>
-                    <span>
-                        07
-                    </span>
+                    <span> 07 </span>
                 </div>
+
                 <div className="weather-scroll-indicator">
                     <div className="scroll-mouse">
                         <div className="scroll-wheel"></div>
                     </div>
-                    <p>
-                        Scroll
-                    </p>
+                    <p> Scroll </p>
                 </div>
             </div>
-            </div>
+        </div>
     </div>
-    </>
+</>
     );
 };
 export default Weather;
